@@ -15,17 +15,17 @@
 <meta property="og:site_name" content="风之小云天的博客">
 <meta property="og:description" content="使用 hexo+Github搭建博客什么是 Hexo？文档Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。 一、配置 Github首先注册、登录 (github)[https:&#x2F;&#x2F;github.com&#x2F;]记住自己的 Username（很重要）然后右上角选择 Create a new repositor">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.yawujia.cn/.cn//git-logo.jpg">
+<meta property="og:image" content="http://www.yawujia.cn/2017/03/12/github-hexo-deploy-blog/git-logo.jpg">
 <meta property="og:image" content="https://git-scm.com/images/logo@2x.png">
-<meta property="og:image" content="http://www.yawujia.cn/.cn//cmder.jpg">
-<meta property="og:image" content="http://www.yawujia.cn/.cn//cmder.jpg">
+<meta property="og:image" content="http://www.yawujia.cn/2017/03/12/github-hexo-deploy-blog/cmder.jpg">
+<meta property="og:image" content="http://www.yawujia.cn/2017/03/12/github-hexo-deploy-blog/cmder.jpg">
 <meta property="article:published_time" content="2017-03-12T13:42:19.000Z">
 <meta property="article:modified_time" content="2020-07-30T07:47:19.010Z">
 <meta property="article:author" content="风之小云天">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="主题">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.yawujia.cn/.cn//git-logo.jpg">
+<meta name="twitter:image" content="http://www.yawujia.cn/2017/03/12/github-hexo-deploy-blog/git-logo.jpg">
   
     <link rel="alternative" href="/atom.xml" title="风之小云天的博客" type="application/atom+xml">
   
@@ -215,7 +215,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用 hexo+Github搭建博客<br><img src="/.cn//git-logo.jpg" alt><br>什么是 Hexo？文档<br>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+        <p>使用 hexo+Github搭建博客<br><img src="/2017/03/12/github-hexo-deploy-blog/git-logo.jpg" alt><br>什么是 Hexo？文档<br>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
 <p>一、配置 Github<br>首先注册、登录 (github)[<a href="https://github.com/]" target="_blank" rel="noopener">https://github.com/]</a><br>记住自己的 Username（很重要）<br>然后右上角选择 Create a new repository <a href="https://github.com/new" target="_blank" rel="noopener">https://github.com/new</a><br>Repository name 填自己的名字 <a href="http://yourname.github.io" target="_blank" rel="noopener">http://yourname.github.io</a><br>与你的注册用户名一致, 这个就是你博客的域名了)</p>
 <p>例如，我的域名是 <a href="http://github.com/yawuplus，" target="_blank" rel="noopener">http://github.com/yawuplus，</a><br>就填入 <a href="http://yawuplus.github.io。" target="_blank" rel="noopener">http://yawuplus.github.io。</a><br>成功后出现下面的画面</p>
 <p>二、环境安装（node、git）<br>安装  <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a><br>安装 Git <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git for Windows.</a><br><img src="https://git-scm.com/images/logo@2x.png" alt><br>国内直接从官网下载比较困难，需要翻墙。这里提供一个国内的下载站，方便网友下载<br><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="noopener">Git 教程</a>这里有廖雪峰老师的教程，非常好。</p>
@@ -223,7 +223,7 @@
 <p>安装 Hexo。所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 
-<p><img src="/.cn//cmder.jpg" alt><br>三、设置<br>在电脑 D 盘（看自己）目录下新建文件夹 test，进入 test，按住 Shift 键点击鼠标右键<br><img src="/.cn//cmder.jpg" alt><br>因为我有安装 Cmder，没有安装的点击 “在此处打开命令窗口”，输入</p>
+<p><img src="/2017/03/12/github-hexo-deploy-blog/cmder.jpg" alt><br>三、设置<br>在电脑 D 盘（看自己）目录下新建文件夹 test，进入 test，按住 Shift 键点击鼠标右键<br><img src="/2017/03/12/github-hexo-deploy-blog/cmder.jpg" alt><br>因为我有安装 Cmder，没有安装的点击 “在此处打开命令窗口”，输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
 <p>稍微等待下，速度有点慢。成功提示<br>INFO  Start blogging with Hexo!<br> 因为你初始化hexo 之后source目录下自带一篇hello world文章, 所以直接执行下方命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br><span class="line"><span class="comment"># 启动本地服务器</span></span><br><span class="line">$ hexo server</span><br><span class="line"><span class="comment"># 在浏览器输入 http://localhost:4000/就可以看见网页和模板了</span></span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</span><br><span class="line">访问 http://localhost:4000/，便可以看到网站初步的模样，不要激动，我们还要把网页发布到 Github 上去。</span><br></pre></td></tr></table></figure>
@@ -535,6 +535,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">devops</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -559,11 +571,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,15 +583,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">图数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -588,6 +596,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GUI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -600,18 +612,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GUI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">devops</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
             
             <div class="clearfix"></div>

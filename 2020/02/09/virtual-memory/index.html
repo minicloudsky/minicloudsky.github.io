@@ -15,19 +15,19 @@
 <meta property="og:site_name" content="风之小云天的博客">
 <meta property="og:description" content="1. 背景介绍 这篇文章介绍一下 Linux 中 swap 与 memory。memory 就是机器的物理内存ram，读写速度低于 cpu 一个量级，但是高于磁盘不止一个量级。所以，程序和数据如果在内存的话，会有非常快的读写速度。但是，内存的造价是要高于磁盘的，虽然相对来说价格一直在降低。除此之外，内存的断电丢失数据也是一个原因，因此不能把所有数据和程序都保存在内存中。既然不能全部使用内存，那数据">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.yawujia.cn/.cn//1.png">
-<meta property="og:image" content="http://www.yawujia.cn/.cn//2.png">
-<meta property="og:image" content="http://www.yawujia.cn/.cn//3.png">
-<meta property="og:image" content="http://www.yawujia.cn/.cn//4.png">
-<meta property="og:image" content="http://www.yawujia.cn/.cn//5.png">
-<meta property="og:image" content="http://www.yawujia.cn/.cn//6.png">
-<meta property="og:image" content="http://www.yawujia.cn/.cn//7.png">
-<meta property="og:image" content="http://www.yawujia.cn/.cn//8.png">
+<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/1.png">
+<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/2.png">
+<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/3.png">
+<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/4.png">
+<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/5.png">
+<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/6.png">
+<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/7.png">
+<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/8.png">
 <meta property="article:published_time" content="2020-02-09T03:32:09.000Z">
 <meta property="article:modified_time" content="2020-07-30T07:47:19.065Z">
 <meta property="article:author" content="风之小云天">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.yawujia.cn/.cn//1.png">
+<meta name="twitter:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/1.png">
   
     <link rel="alternative" href="/atom.xml" title="风之小云天的博客" type="application/atom+xml">
   
@@ -237,21 +237,21 @@
 <p>5 开机挂载</p>
 <p>cat /etc/fstab</p>
 <p>/swaps/swaps swap swap defaults 0 0</p>
-<h3 id="手动创建swap分区"><a href="#手动创建swap分区" class="headerlink" title="手动创建swap分区"></a>手动创建swap分区</h3><h4 id="使用cat-proc-swaps查看当前虚拟内存的情况"><a href="#使用cat-proc-swaps查看当前虚拟内存的情况" class="headerlink" title="使用cat /proc/swaps查看当前虚拟内存的情况"></a>使用cat /proc/swaps查看当前虚拟内存的情况</h4><p><img src="/.cn//1.png" alt></p>
+<h3 id="手动创建swap分区"><a href="#手动创建swap分区" class="headerlink" title="手动创建swap分区"></a>手动创建swap分区</h3><h4 id="使用cat-proc-swaps查看当前虚拟内存的情况"><a href="#使用cat-proc-swaps查看当前虚拟内存的情况" class="headerlink" title="使用cat /proc/swaps查看当前虚拟内存的情况"></a>使用cat /proc/swaps查看当前虚拟内存的情况</h4><p><img src="/2020/02/09/virtual-memory/1.png" alt></p>
 <h4 id="可见没有开启swap，手动创建一个文件夹，叫swaps"><a href="#可见没有开启swap，手动创建一个文件夹，叫swaps" class="headerlink" title="可见没有开启swap，手动创建一个文件夹，叫swaps"></a>可见没有开启swap，手动创建一个文件夹，叫swaps</h4><p> 在 /swaps 这个路径下执行<strong><code>dd if=/dev/zero of=swaps bs=512 count=4194308</code></strong>，在这里创建 <strong>swap 大小为 bs*count=21490217e9 (2G)</strong>，这个过程需要一点时间，稍等片刻： </p>
-<p><img src="/.cn//2.png" alt></p>
+<p><img src="/2020/02/09/virtual-memory/2.png" alt></p>
 <p> 通过<strong><code>mkswap swaps</code></strong>命令将上面新建出的 swaps 文件做成 swap </p>
-<p><img src="/.cn//3.png" alt></p>
+<p><img src="/2020/02/09/virtual-memory/3.png" alt></p>
 <p> 此时使用 <code>cat /proc/sys/vm/swappiness</code> 查看数值应该是 0，需要<strong><code>sysctl -w vm.swappiness=60</code></strong>把它改成 60，这里 60 的含义是：100%-60%=40%，即物理内存剩下 40% 的时候时启用虚拟内存。若想永久修改，则编辑 <code>/etc/sysctl.conf</code> 文件，改文件中有 <code>vm.swappiness</code> 变量配置。 </p>
-<p><img src="/.cn//4.png" alt></p>
-<p><img src="/.cn//5.png" alt></p>
+<p><img src="/2020/02/09/virtual-memory/4.png" alt></p>
+<p><img src="/2020/02/09/virtual-memory/5.png" alt></p>
 <p> 再<strong><code>swapon /swaps/swaps</code></strong>： </p>
-<p><img src="/.cn//6.png" alt></p>
+<p><img src="/2020/02/09/virtual-memory/6.png" alt></p>
 <p>最后就是<strong>添加开机自动挂载</strong>，即在<strong><code>/etc/fstab</code></strong>文件添加如下一句：<strong>/swaps/swaps swap swap defaults 0 0</strong></p>
 <p>再用<strong><code>cat /proc/swaps</code></strong>命令检查一下 swap 分区是否启</p>
-<p><img src="/.cn//7.png" alt></p>
+<p><img src="/2020/02/09/virtual-memory/7.png" alt></p>
 <p>free -h查看下</p>
-<p><img src="/.cn//8.png" alt></p>
+<p><img src="/2020/02/09/virtual-memory/8.png" alt></p>
 
       
 
@@ -508,6 +508,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">devops</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -532,11 +544,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C语言</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -544,15 +556,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">图数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,6 +569,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">GUI</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,18 +585,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">GUI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">devops</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
             
             <div class="clearfix"></div>
