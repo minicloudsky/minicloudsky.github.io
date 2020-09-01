@@ -224,7 +224,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="ssh免密登录配置"><a href="#ssh免密登录配置" class="headerlink" title="ssh免密登录配置"></a>ssh免密登录配置</h3>
+        <h3 id="ssh免密登录localhost配置"><a href="#ssh免密登录localhost配置" class="headerlink" title="ssh免密登录localhost配置"></a>ssh免密登录localhost配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">生成 ssh keys</span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -P <span class="string">''</span> -f ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line">将 ssh keys 输出到 authorized_keys中</span><br><span class="line"></span><br><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line">切换权限</span><br><span class="line"></span><br><span class="line">chmod 0600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<h3 id="base64-加密解密"><a href="#base64-加密解密" class="headerlink" title="base64 加密解密"></a>base64 加密解密</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">加密</span><br><span class="line">base64 &lt;&lt;&lt; <span class="string">"string"</span></span><br><span class="line">解密</span><br><span class="line">base64 -d &lt;&lt;&lt; c3RyaW5nCg==</span><br></pre></td></tr></table></figure>
+<h3 id="npm-run-dev远程访问"><a href="#npm-run-dev远程访问" class="headerlink" title="npm run dev远程访问"></a>npm run dev远程访问</h3><p>修改config下面host为 0.0.0.0<br>package.json 的 scripts dev里面加上 –disableHostCheck=true</p>
+<h3 id="查看uwsgi进程"><a href="#查看uwsgi进程" class="headerlink" title="查看uwsgi进程"></a>查看uwsgi进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep uwsgi</span><br></pre></td></tr></table></figure>
+<h3 id="windows-换行符转-unix换行符"><a href="#windows-换行符转-unix换行符" class="headerlink" title="windows 换行符转 unix换行符"></a>windows 换行符转 unix换行符</h3><ul>
+<li><pre><code class="bash"> 用 sed 进行字符串替换
+
+ sed -i <span class="string">'s/\r//g'</span> *.sh
+ 用 dos2unix 包
+ yum install dos2unix
+ dos2unix *.sh
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### nohup 守护进程后台执行任务</span></span><br><span class="line">```bash</span><br><span class="line">nohup python3  test.py  &amp;&gt;&gt;<span class="keyword">error</span>.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+
       
 
       
@@ -465,214 +480,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/07/01/neo4j-study/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-higher-python" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/03/higher-python/">Python 高级编程笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/03/higher-python/" class="archive-article-date">
-  	<time datetime="2020-04-03T07:16:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>模块间循环导入，A导入B，B导入A</p>
-</li>
-<li><p>is 和 == 区别</p>
-<p>is比较内存地址，== 比较值</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">34</span>]: a=<span class="number">1</span>                                                                      </span><br><span class="line">In [<span class="number">35</span>]: b=<span class="number">1</span>                                                                      </span><br><span class="line">In [<span class="number">36</span>]: a==b                                                                     </span><br><span class="line">Out[<span class="number">36</span>]: <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">37</span>]: a <span class="keyword">is</span> b                                                                   </span><br><span class="line">Out[<span class="number">37</span>]: <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">38</span>]: list = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]                                                           </span><br><span class="line"></span><br><span class="line">In [<span class="number">39</span>]: list2 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]                                                          </span><br><span class="line">In [<span class="number">40</span>]: list <span class="keyword">is</span> list2                                                            </span><br><span class="line">Out[<span class="number">40</span>]: <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">41</span>]: list==list2                                                              </span><br><span class="line">Out[<span class="number">41</span>]: <span class="literal">True</span></span><br><span class="line">In [<span class="number">42</span>]: id(list)                                                                 </span><br><span class="line">Out[<span class="number">42</span>]: <span class="number">140116611518152</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">43</span>]: id(list2)                                                                </span><br><span class="line">Out[<span class="number">43</span>]: <span class="number">140116636517064</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>深拷贝、浅拷贝</p>
-<p>浅拷贝内存共享，变量修改后浅拷贝的变量都跟着改变，深拷贝会新建内存区把数据复制进去，和原来变量是独立的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">10</span>]: a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]                                                              </span><br><span class="line"></span><br><span class="line">In [<span class="number">11</span>]: b= a                                                                     </span><br><span class="line"></span><br><span class="line">In [<span class="number">12</span>]: id(a)                                                                    </span><br><span class="line">Out[<span class="number">12</span>]: <span class="number">139967263031624</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]: id(b)                                                                    </span><br><span class="line">Out[<span class="number">13</span>]: <span class="number">139967263031624</span> 浅拷贝内存地址相同</span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: <span class="keyword">import</span> copy                                                              </span><br><span class="line"></span><br><span class="line">In [<span class="number">15</span>]: c = copy.deepcopy(a)                                                     </span><br><span class="line"></span><br><span class="line">In [<span class="number">16</span>]: id(a)                                                                    </span><br><span class="line">Out[<span class="number">16</span>]: <span class="number">139967263031624</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">17</span>]: id(c)                                                                    </span><br><span class="line">Out[<span class="number">17</span>]: <span class="number">139967348141896</span>   深拷贝内存地址不同</span><br><span class="line"></span><br><span class="line">In [<span class="number">18</span>]: a.append(<span class="number">4</span>)                                                              </span><br><span class="line"></span><br><span class="line">In [<span class="number">19</span>]: a                                                                        </span><br><span class="line">Out[<span class="number">19</span>]: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">In [<span class="number">20</span>]: c                                                                        </span><br><span class="line">Out[<span class="number">20</span>]: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]   深拷贝的值未变，因为在新的内存区</span><br><span class="line"></span><br><span class="line">In [<span class="number">21</span>]: b                                                                        </span><br><span class="line">Out[<span class="number">21</span>]: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
-
-<p>深拷贝时候，如果遇到内存地址，会进行递归拷贝。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">23</span>]: a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]                                                              </span><br><span class="line"></span><br><span class="line">In [<span class="number">24</span>]: b = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]                                                              </span><br><span class="line"></span><br><span class="line">In [<span class="number">25</span>]: c  = [a,b]    c里面存储a、b的引用                                                           </span><br><span class="line"></span><br><span class="line">In [<span class="number">26</span>]: d=c                                                                      </span><br><span class="line"></span><br><span class="line">In [<span class="number">27</span>]: id(c)                                                                    </span><br><span class="line">Out[<span class="number">27</span>]: <span class="number">139967287746376</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">28</span>]: id(d)                                                                    </span><br><span class="line">Out[<span class="number">28</span>]: <span class="number">139967287746376</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">29</span>]: e = copy.deepcopy(c)      e 进行深拷贝                                           </span><br><span class="line"></span><br><span class="line">In [<span class="number">30</span>]: id(e)                                                                    </span><br><span class="line">Out[<span class="number">30</span>]: <span class="number">139967264133832</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">31</span>]: e                                                                        </span><br><span class="line">Out[<span class="number">31</span>]: [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]]</span><br><span class="line"></span><br><span class="line">In [<span class="number">32</span>]: e[<span class="number">0</span>]                                                                     </span><br><span class="line">Out[<span class="number">32</span>]: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">In [<span class="number">33</span>]: a.append(<span class="number">5</span>)                                                              </span><br><span class="line"></span><br><span class="line">In [<span class="number">34</span>]: c                                                                        </span><br><span class="line">Out[<span class="number">34</span>]: [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]]</span><br><span class="line"></span><br><span class="line">In [<span class="number">35</span>]: d                                                                        </span><br><span class="line">Out[<span class="number">35</span>]: [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]]</span><br><span class="line"></span><br><span class="line">In [<span class="number">36</span>]: e                                                                        </span><br><span class="line">Out[<span class="number">36</span>]: [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]]</span><br></pre></td></tr></table></figure>
-
-<p>copy.copy 只复制第一层，不会递归复制数据</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">30</span>]: a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]                                                              </span><br><span class="line"></span><br><span class="line">In [<span class="number">31</span>]: b = [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]                                                              </span><br><span class="line"></span><br><span class="line">In [<span class="number">32</span>]: c= [a,b]                                                                 </span><br><span class="line"></span><br><span class="line">In [<span class="number">33</span>]: e = copy.copy(c)                                                         </span><br><span class="line"></span><br><span class="line">In [<span class="number">34</span>]: a.append(<span class="number">7</span>)                                                              </span><br><span class="line"></span><br><span class="line">In [<span class="number">35</span>]: c                                                                        </span><br><span class="line">Out[<span class="number">35</span>]: [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">7</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]]</span><br><span class="line"></span><br><span class="line">In [<span class="number">36</span>]: e                                                                        </span><br><span class="line">Out[<span class="number">36</span>]: [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">7</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]]</span><br><span class="line"></span><br><span class="line">In [<span class="number">37</span>]: id(c)                                                                    </span><br><span class="line">Out[<span class="number">37</span>]: <span class="number">140219958952584</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">38</span>]: id(e)                                                                    </span><br><span class="line">Out[<span class="number">38</span>]: <span class="number">140219974150984</span></span><br></pre></td></tr></table></figure>
-
-<p>copy.copy 复制不可变类型时候，直接是浅拷贝，将对应内存地址赋值过去，不会进行递归复制数据。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">2</span>]: a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]                                                               </span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: b= [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]                                                                </span><br><span class="line"></span><br><span class="line">In [<span class="number">4</span>]: c = [a,b]                                                                 </span><br><span class="line"></span><br><span class="line">In [<span class="number">5</span>]: <span class="keyword">import</span> copy                                                               </span><br><span class="line"></span><br><span class="line">In [<span class="number">6</span>]: c = (a,b)                                                                 </span><br><span class="line"></span><br><span class="line">In [<span class="number">7</span>]: e = copy.copy(c)                                                          </span><br><span class="line"></span><br><span class="line">In [<span class="number">8</span>]: id(c)                                                                     </span><br><span class="line">Out[<span class="number">8</span>]: <span class="number">140327472307016</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">9</span>]: id(e)                                                                     </span><br><span class="line">Out[<span class="number">9</span>]: <span class="number">140327472307016</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="4">
-<li><p>原码、反码、补码</p>
-<p>正数： 原码 = 反码 = 补码</p>
-<p>负数:   反码 = 符号位不变，其他位数取反</p>
-<p>​            补码 = 反码 +1</p>
-<p>进制转换</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">28</span>]: bin(<span class="number">10</span>)                                                                  </span><br><span class="line">Out[<span class="number">28</span>]: <span class="string">'0b1010'</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">29</span>]: oct(<span class="number">10</span>)                                                                  </span><br><span class="line">Out[<span class="number">29</span>]: <span class="string">'0o12'</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">30</span>]: hex(<span class="number">10</span>)                                                                  </span><br><span class="line">Out[<span class="number">30</span>]: <span class="string">'0xa'</span></span><br><span class="line">In [<span class="number">32</span>]: int(<span class="string">'100'</span>,<span class="number">2</span>)                                                             </span><br><span class="line">Out[<span class="number">32</span>]: <span class="number">4</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>位运算</p>
-<ul>
-<li><p>&amp; 按位与</p>
-</li>
-<li><p>| 按位或</p>
-</li>
-<li><p>^  按位异或  不相同为1 ，相同为 0</p>
-</li>
-<li><p>~ 按位取反</p>
-</li>
-<li><p>&lt;&lt; 按位左移 &gt;&gt; 按位右移</p>
-</li>
-<li><p>用途: 直接操作二进制数据，省内存，效率高</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">38</span>]: <span class="number">1</span>&lt;&lt;<span class="number">10</span>                                                                    </span><br><span class="line">Out[<span class="number">38</span>]: <span class="number">1024</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">39</span>]: <span class="number">512</span>&gt;&gt;<span class="number">6</span>                                                                   </span><br><span class="line">Out[<span class="number">39</span>]: <span class="number">8</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">40</span>]: <span class="number">100</span>&amp;<span class="number">99</span>                                                                   </span><br><span class="line">Out[<span class="number">40</span>]: <span class="number">96</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">41</span>]: <span class="number">0b1010101</span> &amp; <span class="number">0b0101101</span>                                                    </span><br><span class="line">Out[<span class="number">41</span>]: <span class="number">5</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">42</span>]: <span class="number">0b1011101</span> | <span class="number">0b0101100</span>                                                    </span><br><span class="line">Out[<span class="number">42</span>]: <span class="number">125</span></span><br><span class="line">In [<span class="number">44</span>]: <span class="number">0b1011101</span> ^  <span class="number">0b0101100</span>                                                   </span><br><span class="line">Out[<span class="number">44</span>]: <span class="number">113</span></span><br><span class="line">In [<span class="number">49</span>]: ~<span class="number">0b10101010111</span>                                                           </span><br><span class="line">Out[<span class="number">49</span>]: <span class="number">-1368</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>私有化</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">xx: 共有变量</span><br><span class="line"></span><br><span class="line">_x: 单前置下划线，私有化属性或方法，from somemodule import * 禁止导入，类对象和子类可以访问。</span><br><span class="line"></span><br><span class="line">__xx: 双前置下划线，避免与子类中的属性命名冲突，无法在外部直接访问（名字重整所以访问不到）</span><br><span class="line"></span><br><span class="line">__xx__: 双前后下划线，用户名字空间的魔法对象或属性。例如: __init__ ,__不要自己发明这样的名字</span><br><span class="line">xx_: 单后置下划线，用于避免与Python关键词的冲突</span><br></pre></td></tr></table></figure>
-
-<p>​    通过 name mangling （名字重整(目的就是防止子类意外重写基类的方法或属性) 如：_Class__object 机制就可以访问 private 了。</p>
-<p>私有属性添加 getter setter 方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">9</span>]: <span class="class"><span class="keyword">class</span> <span class="title">Money</span><span class="params">(object)</span>:</span> </span><br><span class="line">   ...:     <span class="function"><span class="keyword">def</span> <span class="title">__int__</span><span class="params">(self)</span>:</span> </span><br><span class="line">   ...:         self.__money = <span class="number">0</span> </span><br><span class="line">   ...:     <span class="function"><span class="keyword">def</span> <span class="title">getMoney</span><span class="params">(self)</span>:</span> </span><br><span class="line">   ...:         <span class="keyword">return</span> self.__money </span><br><span class="line">   ...:     <span class="function"><span class="keyword">def</span> <span class="title">setMoney</span><span class="params">(self,value)</span>:</span> </span><br><span class="line">   ...:         <span class="keyword">if</span> isinstance(value,int): </span><br><span class="line">   ...:             self.__money = value </span><br><span class="line">   ...:         <span class="keyword">else</span>: </span><br><span class="line">   ...:             print(<span class="string">"error: 不是整型数字"</span>) </span><br><span class="line">   ...: </span><br><span class="line">In [<span class="number">12</span>]: m = Money()                                                              </span><br><span class="line"></span><br><span class="line">In [<span class="number">13</span>]: m.setMoney(<span class="number">100</span>)                                                          </span><br><span class="line"></span><br><span class="line">In [<span class="number">14</span>]: m.getMoney()                                                             </span><br><span class="line">Out[<span class="number">14</span>]: <span class="number">100</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">15</span>]: m.__money                                                                </span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AttributeError                            Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input<span class="number">-15</span><span class="number">-9159</span>f1107225&gt; <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">----&gt; 1 m.__money</span><br><span class="line"></span><br><span class="line">AttributeError: <span class="string">'Money'</span> object has no attribute <span class="string">'__money'</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="7">
-<li><p>property 属性</p>
-<ol>
-<li><p>property 属性可以用来给属性添加约束，比如温度属性，我们不允许低于 - 273 度；成绩属性，我们不允许 0 分以下等等。而且使用 property 属性，将来修改约束条件的时候也很方便，可以在代码的调用方式不变的情况下改变结果。</p>
-<p>python 中使用 property 属性有两种方法。使用 @property 装饰器和使用 property () 函数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">25</span>]: <span class="class"><span class="keyword">class</span> <span class="title">Employee</span><span class="params">(object)</span>:</span> </span><br><span class="line">    ...:     <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,salary)</span>:</span> </span><br><span class="line">    ...:         self._salary = salary </span><br><span class="line">    ...:     <span class="function"><span class="keyword">def</span> <span class="title">get_score</span><span class="params">(self)</span>:</span> </span><br><span class="line">    ...:         print(<span class="string">"getting score"</span>) </span><br><span class="line">    ...:         <span class="keyword">return</span> self._salary </span><br><span class="line">    ...:     <span class="function"><span class="keyword">def</span> <span class="title">set_score</span><span class="params">(self,salary)</span>:</span> </span><br><span class="line">    ...:         print(<span class="string">"setting score"</span>) </span><br><span class="line">    ...:         <span class="keyword">if</span> <span class="keyword">not</span> isinstance(salary,int): </span><br><span class="line">    ...:             <span class="keyword">raise</span> ValueError(<span class="string">"not a int value"</span>) </span><br><span class="line">    ...:         <span class="keyword">if</span> salary&lt;<span class="number">0</span> <span class="keyword">or</span> salary&gt;<span class="number">100000</span>: </span><br><span class="line">    ...:             <span class="keyword">raise</span> ValueError(<span class="string">"salary value error"</span>) </span><br><span class="line">    ...:         self._salary= salary </span><br><span class="line">    ...:     <span class="function"><span class="keyword">def</span> <span class="title">del_score</span><span class="params">(self)</span>:</span> </span><br><span class="line">    ...:         print(<span class="string">"deleting salary"</span>) </span><br><span class="line">    ...:         <span class="keyword">del</span> self._score </span><br><span class="line">    ...:     salary = property(get_score,set_score,del_score,<span class="string">"-- salary --"</span>) </span><br><span class="line">    ...:                                                                          </span><br><span class="line"></span><br><span class="line">In [<span class="number">26</span>]: e = Employee(<span class="number">100</span>)                                                        </span><br><span class="line"></span><br><span class="line">In [<span class="number">27</span>]: e.score                                                                  </span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AttributeError                            Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input<span class="number">-27</span><span class="number">-2630057808</span>b6&gt; <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">----&gt; 1 e.score</span><br><span class="line"></span><br><span class="line">AttributeError: <span class="string">'Employee'</span> object has no attribute <span class="string">'score'</span></span><br><span class="line"></span><br><span class="line">getting score</span><br><span class="line">In [<span class="number">28</span>]: e.salary                                                                 </span><br><span class="line">getting score</span><br><span class="line">Out[<span class="number">28</span>]: <span class="number">100</span></span><br><span class="line"></span><br><span class="line">getting score</span><br><span class="line">In [<span class="number">29</span>]: e.salary = <span class="number">10099</span>                                                         </span><br><span class="line">setting score</span><br><span class="line"></span><br><span class="line">getting score</span><br><span class="line">In [<span class="number">30</span>]: e.salary                                                                 </span><br><span class="line">getting score</span><br><span class="line">Out[<span class="number">30</span>]: <span class="number">10099</span></span><br><span class="line"></span><br><span class="line">getting score</span><br><span class="line">In [<span class="number">31</span>]: <span class="keyword">del</span> e.salary                                                             </span><br><span class="line">deleting salary</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">AttributeError                            Traceback (most recent call last)</span><br><span class="line">&lt;ipython-input<span class="number">-31</span><span class="number">-584</span>b1f8ddf2c&gt; <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">----&gt; 1 del e.salary</span><br><span class="line"></span><br><span class="line">&lt;ipython-input<span class="number">-25</span><span class="number">-1</span>d9e8b7ec464&gt; <span class="keyword">in</span> del_score(self)</span><br><span class="line">     <span class="number">14</span>     <span class="function"><span class="keyword">def</span> <span class="title">del_score</span><span class="params">(self)</span>:</span></span><br><span class="line">     <span class="number">15</span>         print(<span class="string">"deleting salary"</span>)</span><br><span class="line">---&gt; 16         del self._score</span><br><span class="line">     <span class="number">17</span>     salary = property(get_score,set_score,del_score,<span class="string">"-- salary --"</span>)</span><br><span class="line">     <span class="number">18</span> </span><br><span class="line"></span><br><span class="line">AttributeError: _score</span><br></pre></td></tr></table></figure>
-
-<p>@property 装饰器方式实现</p>
-<p>python 源码中的介绍如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">property(fget=None, fset=None, fdel=None, doc=None) -&gt; property attribute</span><br><span class="line"></span><br><span class="line">fget <span class="keyword">is</span> a function to be used <span class="keyword">for</span> getting an attribute value, <span class="keyword">and</span> likewise</span><br><span class="line">fset <span class="keyword">is</span> a function <span class="keyword">for</span> setting, <span class="keyword">and</span> fdel a function <span class="keyword">for</span> <span class="keyword">del</span><span class="string">'ing, an</span></span><br><span class="line"><span class="string">attribute.  Typical use is to define a managed attribute x:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">class C(object):</span></span><br><span class="line"><span class="string">    def getx(self): return self._x</span></span><br><span class="line"><span class="string">    def setx(self, value): self._x = value</span></span><br><span class="line"><span class="string">    def delx(self): del self._x</span></span><br><span class="line"><span class="string">    x = property(getx, setx, delx, "I'</span>m the <span class="string">'x'</span> property.<span class="string">")</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Decorators make defining new properties or modifying existing ones easy:</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">class C(object):</span></span><br><span class="line"><span class="string">    @property</span></span><br><span class="line"><span class="string">    def x(self):</span></span><br><span class="line"><span class="string">        "</span>I am the <span class="string">'x'</span> property.<span class="string">"</span></span><br><span class="line"><span class="string">        return self._x</span></span><br><span class="line"><span class="string">    @x.setter</span></span><br><span class="line"><span class="string">    def x(self, value):</span></span><br><span class="line"><span class="string">        self._x = value</span></span><br><span class="line"><span class="string">    @x.deleter</span></span><br><span class="line"><span class="string">    def x(self):</span></span><br><span class="line"><span class="string">        del self._x</span></span><br></pre></td></tr></table></figure>
-
-<p>用 property、@num.setter 实现</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">38</span>]: <span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(object)</span>:</span> </span><br><span class="line">    ...:     <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span> </span><br><span class="line">    ...:         self.__num = <span class="number">100</span> </span><br><span class="line">    ...:     @property </span><br><span class="line">    ...:     <span class="function"><span class="keyword">def</span> <span class="title">num</span><span class="params">(self)</span>:</span> </span><br><span class="line">    ...:         print(<span class="string">"----getter-----"</span>) </span><br><span class="line">    ...:         <span class="keyword">return</span> self.__num </span><br><span class="line">    ...:     @num.setter </span><br><span class="line">    ...:     <span class="function"><span class="keyword">def</span> <span class="title">num</span><span class="params">(self,newNum)</span>:</span> </span><br><span class="line">    ...:         print(<span class="string">'----setter----'</span>) </span><br><span class="line">    ...:         self.__num = newNum </span><br><span class="line">    ...:                                                                          </span><br><span class="line"></span><br><span class="line">In [<span class="number">39</span>]:                                                                          </span><br><span class="line"></span><br><span class="line">In [<span class="number">39</span>]: t = Test()                                                               </span><br><span class="line"></span><br><span class="line">In [<span class="number">40</span>]: t.num                                                                    </span><br><span class="line">-----getter---</span><br><span class="line">Out[<span class="number">40</span>]: <span class="number">100</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">41</span>]: t.num = <span class="number">123</span>                                                              </span><br><span class="line">-----setter----</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-<li><p>迭代器</p>
-<ol>
-<li><p>可迭代对象</p>
-<p>以直接作用于 for 循环的数据类型有以下几种:</p>
-<ol>
-<li>集合数据类型：list 、tuple、dict、set、str 等</li>
-<li>generator，报考生成器 和带yield 的generator function</li>
-</ol>
-<p>这些可以直接作用于 for 循环的对象统称为可迭代对象: Iterable</p>
-</li>
-<li><p>判断是否可迭代</p>
-<p>用 isinstance() 判断是否是 Iterable 对象</p>
-<ul>
-<li>凡是可作用于 for 循环的对象都是 Iterable 类型；</li>
-<li>凡是可作用于 next() 函数的对象都是 Iterator 类型</li>
-<li>集合数据类型如 list 、 dict 、 str 等是 Iterable 但不是 Iterator ，不过可以通过 iter() 函数获得一个 Iterator 对象。</li>
-</ul>
-</li>
-<li><p>迭代器 Iterator</p>
-<p>可以被next()函数调用并不断返回下一个值的对象称为迭代器：Iterator。</p>
-<p>可以使用 isinstance() 判断一个对象是否是 Iterator 对象：</p>
-</li>
-</ol>
-</li>
-<li><p>闭包 外部函数的返回值是内部函数的引用</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">line_conf</span><span class="params">(a,b)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">line</span><span class="params">(x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> a*x + b</span><br><span class="line">    <span class="keyword">return</span> line</span><br><span class="line">line1  = line_conf(<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">line2 = line_conf(<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">print(line1(<span class="number">5</span>))</span><br><span class="line">print(line2(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-</li>
-</ol>
-<ol start="10">
-<li>装饰器</li>
-</ol>
-<ol start="11">
-<li><p><strong>slots</strong></p>
-<p>动态语言：可以在运行的过程中，修改代码</p>
-<p>静态语言：编译时已经确定好代码，运行过程中不能修改</p>
-<p>如果我们想要限制实例的属性怎么办？比如，只允许对Person实例添加name和age属性。</p>
-<p>为了达到限制的目的，Python允许在定义class的时候，定义一个特殊的<strong>slots</strong>变量，来限制该class实例能添加的属性：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(object)</span>:</span></span><br><span class="line">    __slots__ = (<span class="string">"name"</span>, <span class="string">"age"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>P = Person()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>P.name = <span class="string">"老王"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>P.age = <span class="number">20</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>P.score = <span class="number">100</span></span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"&lt;pyshell#3&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">AttributeError: Person instance has no attribute <span class="string">'score'</span></span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h4><ul>
-<li>使用<strong>slots</strong>要注意，<strong>slots</strong>定义的属性仅对当前类实例起作用，对继承的子类是不起作用的</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">67</span>]: <span class="class"><span class="keyword">class</span> <span class="title">Test</span><span class="params">(Person)</span>:</span></span><br><span class="line">    ...:     <span class="keyword">pass</span></span><br><span class="line">    ...:</span><br><span class="line"></span><br><span class="line">In [<span class="number">68</span>]: t = Test()</span><br><span class="line"></span><br><span class="line">In [<span class="number">69</span>]: t.score = <span class="number">100</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/03/higher-python/">展开全文 >></a>
         </p>
       
 
@@ -1248,6 +1055,94 @@
 
 
   
+    <article id="post-docker-study" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/15/docker-study/">docker学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/15/docker-study/" class="archive-article-date">
+  	<time datetime="2019-05-15T00:33:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="什么是docker"><a href="#什么是docker" class="headerlink" title="什么是docker"></a>什么是docker</h3><p>docker包括一个命令行程序、一个后台守护进程、以及一组远程服务。它解决了常见的软件问题，并建华路安装、运行、发布和删除软件。这一切能够实现是使用一项Unix技术，称为容器。</p>
+<h3 id="容器不是虚拟化"><a href="#容器不是虚拟化" class="headerlink" title="容器不是虚拟化"></a>容器不是虚拟化</h3><p>在没有docker时代，使用硬件虚拟化(虚拟机),以提供隔离，虚拟机提供虚拟硬件，可安装一个os和其他程序，需要很长时间创建，资源开销打，因为除了要执行你需要的软件，还需要运行整个操作系统的副本。<br>docker容器不使用硬件虚拟化，运行在docker容器中的程序接口和逐渐的Linux内核直接打交道，容器中运行的程序与计算机操作系统直接没有额外的中间层，没有资源被冗余软件的运行或者虚拟硬件模拟而浪费掉，docker不是虚拟化技术，相反，它可以帮助使用已经内置到操作系统中的容器技术。</p>
+        
+          <a class="article-more-a" href="/2019/05/15/docker-study/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/15/docker-study/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1366,23 +1261,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">人生</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">devops</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1406,7 +1285,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">人生</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">devops</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1418,19 +1309,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1442,23 +1329,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GUI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
             
             <div class="clearfix"></div>

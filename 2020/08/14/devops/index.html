@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://www.yawujia.cn">
   <title>运维开发笔记 | 风之小云天的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ssh免密登录配置">
+  <meta name="description" content="ssh免密登录localhost配置1234567891011生成 ssh keysssh-keygen -t rsa -P &#39;&#39; -f ~&#x2F;.ssh&#x2F;id_rsa将 ssh keys 输出到 authorized_keys中cat ~&#x2F;.ssh&#x2F;id_rsa.pub &gt;&gt; ~&#x2F;.ssh&#x2F;authorized_keys切换权限chmod 0600 ~&#x2F;.ssh&#x2F;authorized_k">
 <meta property="og:type" content="article">
 <meta property="og:title" content="运维开发笔记">
 <meta property="og:url" content="http://www.yawujia.cn/2020/08/14/devops/index.html">
 <meta property="og:site_name" content="风之小云天的博客">
-<meta property="og:description" content="ssh免密登录配置">
+<meta property="og:description" content="ssh免密登录localhost配置1234567891011生成 ssh keysssh-keygen -t rsa -P &#39;&#39; -f ~&#x2F;.ssh&#x2F;id_rsa将 ssh keys 输出到 authorized_keys中cat ~&#x2F;.ssh&#x2F;id_rsa.pub &gt;&gt; ~&#x2F;.ssh&#x2F;authorized_keys切换权限chmod 0600 ~&#x2F;.ssh&#x2F;authorized_k">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-14T06:33:42.000Z">
-<meta property="article:modified_time" content="2020-08-14T07:41:12.834Z">
+<meta property="article:modified_time" content="2020-09-01T10:11:03.503Z">
 <meta property="article:author" content="风之小云天">
 <meta property="article:tag" content="devops">
 <meta name="twitter:card" content="summary">
@@ -225,7 +225,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="ssh免密登录配置"><a href="#ssh免密登录配置" class="headerlink" title="ssh免密登录配置"></a>ssh免密登录配置</h3>
+        <h3 id="ssh免密登录localhost配置"><a href="#ssh免密登录localhost配置" class="headerlink" title="ssh免密登录localhost配置"></a>ssh免密登录localhost配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">生成 ssh keys</span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -P <span class="string">''</span> -f ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line">将 ssh keys 输出到 authorized_keys中</span><br><span class="line"></span><br><span class="line">cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span><br><span class="line"></span><br><span class="line">切换权限</span><br><span class="line"></span><br><span class="line">chmod 0600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<h3 id="base64-加密解密"><a href="#base64-加密解密" class="headerlink" title="base64 加密解密"></a>base64 加密解密</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">加密</span><br><span class="line">base64 &lt;&lt;&lt; <span class="string">"string"</span></span><br><span class="line">解密</span><br><span class="line">base64 -d &lt;&lt;&lt; c3RyaW5nCg==</span><br></pre></td></tr></table></figure>
+<h3 id="npm-run-dev远程访问"><a href="#npm-run-dev远程访问" class="headerlink" title="npm run dev远程访问"></a>npm run dev远程访问</h3><p>修改config下面host为 0.0.0.0<br>package.json 的 scripts dev里面加上 –disableHostCheck=true</p>
+<h3 id="查看uwsgi进程"><a href="#查看uwsgi进程" class="headerlink" title="查看uwsgi进程"></a>查看uwsgi进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep uwsgi</span><br></pre></td></tr></table></figure>
+<h3 id="windows-换行符转-unix换行符"><a href="#windows-换行符转-unix换行符" class="headerlink" title="windows 换行符转 unix换行符"></a>windows 换行符转 unix换行符</h3><ul>
+<li><pre><code class="bash"> 用 sed 进行字符串替换
+
+ sed -i <span class="string">'s/\r//g'</span> *.sh
+ 用 dos2unix 包
+ yum install dos2unix
+ dos2unix *.sh
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### nohup 守护进程后台执行任务</span></span><br><span class="line">```bash</span><br><span class="line">nohup python3  test.py  &amp;&gt;&gt;<span class="keyword">error</span>.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+
       
 
       
@@ -499,23 +514,7 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">人生</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">devops</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,7 +538,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">人生</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">devops</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,19 +562,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C语言</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -575,23 +582,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">GUI</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
             
             <div class="clearfix"></div>
