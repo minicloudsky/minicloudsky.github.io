@@ -6,23 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.yawujia.cn">
-  <title>docker学习笔记 | 风之小云天的博客</title>
+  <title>Archives: 2020/9 | 风之小云天的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="什么是dockerdocker包括一个命令行程序、一个后台守护进程、以及一组远程服务。它解决了常见的软件问题，并建华路安装、运行、发布和删除软件。这一切能够实现是使用一项Unix技术，称为容器。 容器不是虚拟化在没有docker时代，使用硬件虚拟化(虚拟机),以提供隔离，虚拟机提供虚拟硬件，可安装一个os和其他程序，需要很长时间创建，资源开销打，因为除了要执行你需要的软件，还需要运行整个操作系统的">
-<meta property="og:type" content="article">
-<meta property="og:title" content="docker学习笔记">
-<meta property="og:url" content="http://www.yawujia.cn/2019/05/15/docker-study/index.html">
+  <meta name="description" content="风之小云天的学习博客，编程和生活，不可或缺。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="风之小云天的博客">
+<meta property="og:url" content="http://www.yawujia.cn/archives/2020/09/index.html">
 <meta property="og:site_name" content="风之小云天的博客">
-<meta property="og:description" content="什么是dockerdocker包括一个命令行程序、一个后台守护进程、以及一组远程服务。它解决了常见的软件问题，并建华路安装、运行、发布和删除软件。这一切能够实现是使用一项Unix技术，称为容器。 容器不是虚拟化在没有docker时代，使用硬件虚拟化(虚拟机),以提供隔离，虚拟机提供虚拟硬件，可安装一个os和其他程序，需要很长时间创建，资源开销打，因为除了要执行你需要的软件，还需要运行整个操作系统的">
+<meta property="og:description" content="风之小云天的学习博客，编程和生活，不可或缺。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.yawujia.cn/2019/05/15/docker-study/instance.png">
-<meta property="og:image" content="http://www.yawujia.cn/2019/05/15/docker-study/three.png">
-<meta property="article:published_time" content="2019-05-15T00:33:42.000Z">
-<meta property="article:modified_time" content="2020-07-30T07:47:19.007Z">
 <meta property="article:author" content="风之小云天">
-<meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.yawujia.cn/2019/05/15/docker-study/instance.png">
   
     <link rel="alternative" href="/atom.xml" title="风之小云天的博客" type="application/atom+xml">
   
@@ -208,325 +202,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-docker-study" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      docker学习笔记
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/09/02/markdown/" class="archive-article-date">
+  	<time datetime="2020-09-02T01:37:17.222Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/09/02/markdown/">markdown</a>
     </h1>
   
 
-        
-        <a href="/2019/05/15/docker-study/" class="archive-article-date">
-  	<time datetime="2019-05-15T00:33:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="什么是docker"><a href="#什么是docker" class="headerlink" title="什么是docker"></a>什么是docker</h3><p>docker包括一个命令行程序、一个后台守护进程、以及一组远程服务。它解决了常见的软件问题，并建华路安装、运行、发布和删除软件。这一切能够实现是使用一项Unix技术，称为容器。</p>
-<h3 id="容器不是虚拟化"><a href="#容器不是虚拟化" class="headerlink" title="容器不是虚拟化"></a>容器不是虚拟化</h3><p>在没有docker时代，使用硬件虚拟化(虚拟机),以提供隔离，虚拟机提供虚拟硬件，可安装一个os和其他程序，需要很长时间创建，资源开销打，因为除了要执行你需要的软件，还需要运行整个操作系统的副本。<br>docker容器不使用硬件虚拟化，运行在docker容器中的程序接口和逐渐的Linux内核直接打交道，容器中运行的程序与计算机操作系统直接没有额外的中间层，没有资源被冗余软件的运行或者虚拟硬件模拟而浪费掉，docker不是虚拟化技术，相反，它可以帮助使用已经内置到操作系统中的容器技术。</p>
-<a id="more"></a>
+        <div class="article-info info-on-right">
+          
+          
 
-<h3 id="隔离容器中运行软件"><a href="#隔离容器中运行软件" class="headerlink" title="隔离容器中运行软件"></a>隔离容器中运行软件</h3><p>docker使用已经成为linux一部分的linux命名空间和cgroups，docker不提供容器技术，但它使得容器更易于使用要了解系统中在容器什么样子，让我们先建立一条基线，如下为计算机系统体系结构上运行的基本容器示例。<br><img src="/2019/05/15/docker-study/instance.png" alt></p>
-<p>运行docker可以认为是在用户控件运行两个程序，首先是docker守护进程，如果正确安装，该进程应该始终处于运行状态。另一个为docker CLI，它是与用户交互的docker程序，如果要启动，停止，运行或安装软件，你可以用docker CLI执行相应命令。<br><img src="/2019/05/15/docker-study/three.png" alt></p>
-<h3 id="docker容器隔离"><a href="#docker容器隔离" class="headerlink" title="docker容器隔离"></a>docker容器隔离</h3><p>docker构建容器隔离包括8个方面，具体如下:  </p>
-<ul>
-<li><code>PID命令空间</code> —– 进程标识符和能力</li>
-<li><code>UTS命名空间</code> —– 主机名和域名</li>
-<li><code>MNT命名空间</code> —– 文件系统访问和结构</li>
-<li><code>IPC命名空间</code> —– 通过共享内存的进程间通信</li>
-<li><code>NET命名空间</code> —– 网络访问和结构 </li>
-<li><code>chroot()</code>   —– 控制文件系统根目录的位置</li>
-<li><code>cgroups</code>    —– 资源保护  </li>
-</ul>
-<p>Linux命名空间和<code>cgroups</code>管理着运行时容器，docker采用另一套技术，就像运输集装箱一样为文件提供容器。  </p>
-<h3 id="分发容器"><a href="#分发容器" class="headerlink" title="分发容器"></a>分发容器</h3><p>docker容器可以看成物理运输的集装箱，这是你存储、运行应用程序及其所有依赖的盒子。docker可以执行、复制、轻松地分发容器。docker通过一种打包和分发软件，完成传统容器的封装。这个用来充当容器分发角色的组件被称为<code>镜像</code>。<br>Docker镜像，是一个容器中运行程序的所有文件的捆绑快照。你可以从镜像中创造尽可能多的容器，但是你这样做时候，从相同的镜像启动的容器不共享文件系统的更改。当你用docker分发软件，其实就是分发这些镜像，并在接收的机器上创建容器镜像在docker生态系统中是可交付的基本单位。</p>
-<hr>
-<h3 id="docker下安装常用工具命令总结"><a href="#docker下安装常用工具命令总结" class="headerlink" title="docker下安装常用工具命令总结"></a>docker下安装常用工具命令总结</h3><p>查看docker磁盘占用</p>
-<p><code>docker system df</code></p>
-<p>查看虚悬镜像</p>
-<p><code>docker image ls  -f dangling=true</code></p>
-<p>删除虚悬镜像</p>
-<p><code>docker image  prune</code></p>
-<p>根据仓库名列出镜像</p>
-<p><code>docker images ls Ubuntu</code></p>
-<p>列出镜像和标签</p>
-<p><code>docker images ls Ubuntu:18.04</code></p>
-<p>容器重命名 </p>
-<p>docker rename name1 name2</p>
-<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><p>from 指定基础镜像</p>
-<p>以一个镜像为基础，在其上进行定制。必须是第一条命令</p>
-<p>除了选择现有镜像为基础镜像外，Docker 还存在一个特殊的镜像，名为scratch。这个镜像是虚拟的概念，并不实际存在，它表示一个空白的镜像。</p>
-<p><code>FROM scratch</code></p>
-<p>如果你以scratch为基础镜像的话，意味着你不以任何镜像为基础，接下来所写的指令将作为镜像第一层开始存在</p>
-<h3 id="CMD-容器启动命令"><a href="#CMD-容器启动命令" class="headerlink" title="CMD 容器启动命令"></a>CMD 容器启动命令</h3><p>   <code>CMD</code> 指令的格式和 <code>RUN</code> 相似，也是两种格式：</p>
-<ul>
-<li><code>shell</code> 格式：<code>CMD &lt;命令&gt;</code></li>
-</ul>
-<ul>
-<li><p><code>exec</code> 格式：<code>CMD [&quot;可执行文件&quot;, &quot;参数1&quot;, &quot;参数2&quot;...]</code></p>
-<ul>
-<li><p>参数列表格式：<code>CMD [&quot;参数1&quot;, &quot;参数2&quot;...]</code>。在指定了 <code>ENTRYPOINT</code> 指令后，用 <code>CMD</code> 指定具体的参数。</p>
-<p>之前介绍容器的时候曾经说过，Docker 不是虚拟机，容器就是进程。既然是进程，那么在启动容器的时候，需要指定所运行的程序及参数。<code>CMD</code> 指令就是用于指定默认的容器主进程的启动命令的。</p>
-<p>在运行时可以指定新的命令来替代镜像设置中的这个默认命令，比如，<code>ubuntu</code> 镜像默认的 <code>CMD</code> 是 <code>/bin/bash</code>，如果我们直接 <code>docker run -it ubuntu</code> 的话，会直接进入 <code>bash</code>。我们也可以在运行时指定运行别的命令，如 <code>docker run -it ubuntu cat /etc/os-release</code>。这就是用 <code>cat /etc/os-release</code> 命令替换了默认的 <code>/bin/bash</code> 命令了，输出了系统版本信息。</p>
-<p>在指令格式上，一般推荐使用 <code>exec</code> 格式，这类格式在解析时会被解析为 JSON 数组，因此一定要使用双引号 <code>&quot;</code>，而不要使用单引号。</p>
-<h3 id="ENTRYPOINT-入口点"><a href="#ENTRYPOINT-入口点" class="headerlink" title="ENTRYPOINT 入口点"></a>ENTRYPOINT 入口点</h3><p><code>ENTRYPOINT</code> 的格式和 <code>RUN</code> 指令格式一样，分为 <code>exec</code> 格式和 <code>shell</code> 格式。</p>
-<p><code>ENTRYPOINT</code> 的目的和 <code>CMD</code> 一样，都是在指定容器启动程序及参数。<code>ENTRYPOINT</code> 在运行时也可以替代，不过比 <code>CMD</code> 要略显繁琐，需要通过 <code>docker run</code> 的参数 <code>--entrypoint</code> 来指定。</p>
-<p>当指定了 <code>ENTRYPOINT</code> 后，<code>CMD</code> 的含义就发生了改变，不再是直接的运行其命令，而是将 <code>CMD</code> 的内容作为参数传给 <code>ENTRYPOINT</code> 指令，换句话说实际执行时，将变为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ENTRYPOINT&gt; <span class="string">"&lt;CMD&gt;"</span></span><br></pre></td></tr></table></figure>
-<p>当利用 docker run 来创建容器时，Docker 在后台运行的标准操作包括：<br>检查本地是否存在指定的镜像，不存在就从公有仓库下载<br>利用镜像创建并启动一个容器<br>分配一个文件系统，并在只读的镜像层外面挂载一层可读写层<br>从宿主主机配置的网桥接口中桥接一个虚拟接口到容器中去<br>从地址池配置一个 ip 地址给容器<br>执行用户指定的应用程序<br>执行完毕后容器被终止</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h4><h5 id="拉取mysql镜像"><a href="#拉取mysql镜像" class="headerlink" title="拉取mysql镜像"></a>拉取mysql镜像</h5><p><code>docker pull mysql</code></p>
-<p>启动一个镜像，并将mysql映射到服务器3306端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker  run  -it --name  mysql -p 3306:3306   -e MYSQL_ROOT_PASSWORD=root   -v   /home/containermaps/mysql/<span class="built_in">log</span>/:/var/<span class="built_in">log</span>/mysql  -v /home/containermaps/mysql/conf.d/:/etc/mysql     -v   /home/containermaps/mysql/data:/var/lib/mysql -d mysql:5.7</span><br></pre></td></tr></table></figure>
-
-<p>默认用户为root</p>
-<p>–name为容器名</p>
-<p>-p指定端口</p>
-<p>MYSQL_ROOT_PASSWORD 指定密码</p>
-<p>进入mysql</p>
-<p><code>docker exec -it mysql5.7-2  bash</code></p>
-<p><code>mysql     -uroot  -p</code></p>
-<h4 id="nginx服务器"><a href="#nginx服务器" class="headerlink" title="nginx服务器"></a>nginx服务器</h4><p><code>docker pull nginx</code></p>
-<p>运行nginx</p>
-<p><code>docker run --name  nginx-test -p 80:80 -d nginx</code></p>
-<p>将nginx映射到本地目录</p>
-<p>首先在/usr/local下新建目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /usr/<span class="built_in">local</span>/docker-nginx/www /usr/<span class="built_in">local</span>/docker-nginx/logs /usr/<span class="built_in">local</span>/docker-nginx/conf</span><br><span class="line"></span><br><span class="line">将docker中nginx配置文件复制到到服务器</span><br><span class="line"></span><br><span class="line">docker cp 63185c51103a:/etc/nginx/nginx.conf /usr/<span class="built_in">local</span>/docker-nginx/conf/</span><br><span class="line"></span><br><span class="line">关闭上一个容器，重新启动一个nginx容器</span><br><span class="line"></span><br><span class="line">docker run -d -p 80:80 --name nginx-server -v /usr/<span class="built_in">local</span>/docker-nginx/www:/usr/share/nginx/html -v /usr/<span class="built_in">local</span>/docker-nginx/conf/nginx.conf:/etc/nginx/nginx.conf -v /usr/<span class="built_in">local</span>/docker-nginx/logs:/var/<span class="built_in">log</span>/nginx nginx</span><br></pre></td></tr></table></figure>
-
-<p>由此配置好以后，修改/usr/local/docker-nginx目录下的conf中的nginx.conf，就可以完成对nginx的配置，修改www目录下的html文件即可更新nginx部署的网页</p>
-<h4 id="redis数据库"><a href="#redis数据库" class="headerlink" title="redis数据库"></a>redis数据库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull redis</span><br><span class="line">docker run --restart=always -d -p 6379:6379 -v /usr/<span class="built_in">local</span>/docker-redis/data/:/data --name redis redis redis-server --appendonly yes --requirepass <span class="string">"redis"</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="命令说明："><a href="#命令说明：" class="headerlink" title="命令说明："></a>命令说明：</h5><p><code>-p 6388:6379 : 将容器的 6379 端口映射到主机的 6379 端口</code><br><code>-v /usr/local/docker-redis/data/ : 将主机中 /usr/local/docker-redis/data/ 目录下的 redis 挂载到容器的 /data</code><br><code>redis-server --appendonly yes : 在容器执行 redis-server 启动命令，并打开 redis 持久化配置</code></p>
-<p>连接redis</p>
-<p><code>docker exec -ti 5f4c4cf5a5f5 redis-cli a &quot;redis passwd&quot;</code></p>
-<p><a href="https://luoliangdsga.github.io/2018/04/26/使用Docker部署Redis/" target="_blank" rel="noopener">https://luoliangdsga.github.io/2018/04/26/%E4%BD%BF%E7%94%A8Docker%E9%83%A8%E7%BD%B2Redis/</a></p>
-<h4 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h4><p><code>docker pull mongo</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 27017:27017 -v /usr/<span class="built_in">local</span>/docker-mongodb/data:/data/db -d mongo</span><br></pre></td></tr></table></figure>
-
-<p>进入mongo</p>
-<p><code>docker exec -it mongo mongo admin</code></p>
-<h3 id="elasticsearch"><a href="#elasticsearch" class="headerlink" title="elasticsearch"></a>elasticsearch</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull docker.elastic.co/elasticsearch/elasticsearch:7.5.2</span><br><span class="line">docker run -p 9200:9200 -p 9300:9300 -e <span class="string">"discovery.type=single-node"</span> docker.elastic.co/elasticsearch/elasticsearch:7.5.2</span><br></pre></td></tr></table></figure>
-
-<h3 id="kibana"><a href="#kibana" class="headerlink" title="kibana"></a>kibana</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull docker.elastic.co/kibana/kibana:7.6.0</span><br><span class="line"></span><br><span class="line">docker run --link YOUR_ELASTICSEARCH_CONTAINER_NAME_OR_ID:elasticsearch -p 5601:5601 &#123;docker-repo&#125;:&#123;version&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="docker-容器中软件安装"><a href="#docker-容器中软件安装" class="headerlink" title="docker 容器中软件安装"></a>docker 容器中软件安装</h3><ul>
-<li>使用国内镜像</li>
-</ul>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mv <span class="string">/etc/apt/sources.list</span> <span class="string">/etc/apt/sources.list.bak</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"deb http://mirrors.163.com/debian/ jessie main non-free contrib"</span> &gt;&gt; <span class="string">/etc/apt/sources.list</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"deb http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib"</span> &gt;&gt;<span class="string">/etc/apt/sources.list</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"deb-src http://mirrors.163.com/debian/ jessie main non-free contrib"</span> &gt;&gt;<span class="string">/etc/apt/sources.list</span></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"deb-src http://mirrors.163.com/debian/ jessie-proposed-updates main non-free contrib"</span> &gt;&gt;<span class="string">/etc/apt/sources.list</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>更新 <code>apt-get</code> 指令</li>
-</ul>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="keyword">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>安装 <code>yum</code> 命令</li>
-</ul>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-<span class="builtin-name">get</span> install vim</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>添加 <code>ls</code> 命令</li>
-</ul>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~<span class="string">/.bashrc</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在最后一行添加</li>
-</ul>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">alias</span> ll=<span class="string">'ls <span class="variable">$LS_OPTIONS</span> -l'</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>使之生效</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<h3 id="postgresql"><a href="#postgresql" class="headerlink" title="postgresql"></a>postgresql</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 80:80 \</span><br><span class="line">    -e <span class="string">'PGADMIN_DEFAULT_EMAIL=1397991131@qq.com'</span> \</span><br><span class="line">    -e <span class="string">'PGADMIN_DEFAULT_PASSWORD=pgadmin'</span> \</span><br><span class="line">    -e <span class="string">'PGADMIN_CONFIG_ENHANCED_COOKIE_PROTECTION=True'</span> \</span><br><span class="line">    -e <span class="string">'PGADMIN_CONFIG_LOGIN_BANNER="Authorised users only!"'</span> \</span><br><span class="line">    -e <span class="string">'PGADMIN_CONFIG_CONSOLE_LOG_LEVEL=10'</span> \</span><br><span class="line">    -d dpage/pgadmin4</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm   --name pg-docker -e POSTGRES_PASSWORD=root -d -p 5432:5432 -v /home/containermaps/postgres/:/var/lib/postgresql/data  postgres</span><br></pre></td></tr></table></figure>
-
-<h3 id="orcale"><a href="#orcale" class="headerlink" title="orcale"></a>orcale</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull alexeiled/docker-oracle-xe-11g</span><br><span class="line">docker run -h <span class="string">"oracle"</span> --name <span class="string">"oracle"</span> -d -p 49160:22 -p 49161:1521 -p 49162:8080 alexeiled/docker-oracle-xe-11g</span><br></pre></td></tr></table></figure>
-
-<p>create user orcale identified by orcale;</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/uploads/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/uploads/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/docker//" class="article-tag-list-link color2">docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.yawujia.cn/2019/05/15/docker-study/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/09/22/mysql-notes/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Mysql必知必会笔记
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/05/15/may-june-interview/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">毕业找工作</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -549,8 +267,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
