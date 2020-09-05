@@ -16,7 +16,7 @@
 <meta property="og:description" content="ssh免密登录localhost配置1234567891011生成 ssh keysssh-keygen -t rsa -P &#39;&#39; -f ~&#x2F;.ssh&#x2F;id_rsa将 ssh keys 输出到 authorized_keys中cat ~&#x2F;.ssh&#x2F;id_rsa.pub &gt;&gt; ~&#x2F;.ssh&#x2F;authorized_keys切换权限chmod 0600 ~&#x2F;.ssh&#x2F;authorized_k">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-08-14T06:33:42.000Z">
-<meta property="article:modified_time" content="2020-09-02T01:38:01.214Z">
+<meta property="article:modified_time" content="2020-09-02T03:49:42.881Z">
 <meta property="article:author" content="风之小云天">
 <meta property="article:tag" content="devops">
 <meta name="twitter:card" content="summary">
@@ -231,6 +231,7 @@
 <h3 id="查看uwsgi进程"><a href="#查看uwsgi进程" class="headerlink" title="查看uwsgi进程"></a>查看uwsgi进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep uwsgi</span><br></pre></td></tr></table></figure>
 <h3 id="windows-换行符转-unix换行符"><a href="#windows-换行符转-unix换行符" class="headerlink" title="windows 换行符转 unix换行符"></a>windows 换行符转 unix换行符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用 sed 进行字符串替换</span><br><span class="line"></span><br><span class="line">sed -i <span class="string">'s/\r//g'</span> *.sh</span><br><span class="line">用 dos2unix 包</span><br><span class="line">yum install dos2unix</span><br><span class="line">dos2unix *.sh</span><br></pre></td></tr></table></figure>
 <h3 id="nohup-守护进程后台执行任务"><a href="#nohup-守护进程后台执行任务" class="headerlink" title="nohup 守护进程后台执行任务"></a>nohup 守护进程后台执行任务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup python3  test.py  &amp;&gt;&gt;error.log</span><br></pre></td></tr></table></figure>
+<h3 id="docker-容器内无法使用vi-vim-等命令"><a href="#docker-容器内无法使用vi-vim-等命令" class="headerlink" title="docker 容器内无法使用vi vim 等命令"></a>docker 容器内无法使用vi vim 等命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">或者 yum update</span><br><span class="line">然后</span><br><span class="line">apt-get install vim-tiny</span><br><span class="line">or yum install vim</span><br></pre></td></tr></table></figure>
 
 
       
@@ -519,6 +520,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">人生</a>
               </li>
              
@@ -527,15 +532,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">大数据</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">devops</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,11 +556,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,11 +572,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -584,10 +589,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工作</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
