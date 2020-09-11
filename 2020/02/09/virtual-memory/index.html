@@ -7,29 +7,29 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://www.yawujia.cn">
+  <link rel="dns-prefetch" href="https://www.yawujia.cn">
   <title>Linux中swap与memory介绍 | 风之小云天的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1. 背景介绍 这篇文章介绍一下 Linux 中 swap 与 memory。memory 就是机器的物理内存ram，读写速度低于 cpu 一个量级，但是高于磁盘不止一个量级。所以，程序和数据如果在内存的话，会有非常快的读写速度。但是，内存的造价是要高于磁盘的，虽然相对来说价格一直在降低。除此之外，内存的断电丢失数据也是一个原因，因此不能把所有数据和程序都保存在内存中。既然不能全部使用内存，那数据">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux中swap与memory介绍">
-<meta property="og:url" content="http://www.yawujia.cn/2020/02/09/virtual-memory/index.html">
+<meta property="og:url" content="https://www.yawujia.cn/2020/02/09/virtual-memory/index.html">
 <meta property="og:site_name" content="风之小云天的博客">
 <meta property="og:description" content="1. 背景介绍 这篇文章介绍一下 Linux 中 swap 与 memory。memory 就是机器的物理内存ram，读写速度低于 cpu 一个量级，但是高于磁盘不止一个量级。所以，程序和数据如果在内存的话，会有非常快的读写速度。但是，内存的造价是要高于磁盘的，虽然相对来说价格一直在降低。除此之外，内存的断电丢失数据也是一个原因，因此不能把所有数据和程序都保存在内存中。既然不能全部使用内存，那数据">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/1.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/2.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/3.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/4.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/5.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/6.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/7.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/8.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/02/09/virtual-memory/1.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/02/09/virtual-memory/2.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/02/09/virtual-memory/3.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/02/09/virtual-memory/4.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/02/09/virtual-memory/5.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/02/09/virtual-memory/6.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/02/09/virtual-memory/7.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/02/09/virtual-memory/8.png">
 <meta property="article:published_time" content="2020-02-09T03:32:09.000Z">
 <meta property="article:modified_time" content="2020-07-30T07:47:19.065Z">
 <meta property="article:author" content="风之小云天">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.yawujia.cn/2020/02/09/virtual-memory/1.png">
+<meta name="twitter:image" content="https://www.yawujia.cn/2020/02/09/virtual-memory/1.png">
   
     <link rel="alternative" href="/atom.xml" title="风之小云天的博客" type="application/atom+xml">
   
@@ -359,7 +359,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.yawujia.cn/2020/02/09/virtual-memory/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.yawujia.cn/2020/02/09/virtual-memory/" alt="微信分享二维码">
     </div>
 </div>
 

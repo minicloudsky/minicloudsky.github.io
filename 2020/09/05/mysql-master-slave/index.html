@@ -7,38 +7,38 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://www.yawujia.cn">
+  <link rel="dns-prefetch" href="https://www.yawujia.cn">
   <title>mysql 主从复制实践 | 风之小云天的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="mysql是常见的关系型数据库，为了方便把一个mysql数据源的数据复制到其他mysql host，复制特性就是为了解决这个问题的，slave mysql 服务器通过读取master 的binlog进行复制，写入slave mysql 服务器。参考mysql官网 replication 因为贫民窟少女只有两台服务器的原因，这里使用 docker 开启三个容器，一个master，两个slave，进行">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql 主从复制实践">
-<meta property="og:url" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/index.html">
+<meta property="og:url" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/index.html">
 <meta property="og:site_name" content="风之小云天的博客">
 <meta property="og:description" content="mysql是常见的关系型数据库，为了方便把一个mysql数据源的数据复制到其他mysql host，复制特性就是为了解决这个问题的，slave mysql 服务器通过读取master 的binlog进行复制，写入slave mysql 服务器。参考mysql官网 replication 因为贫民窟少女只有两台服务器的原因，这里使用 docker 开启三个容器，一个master，两个slave，进行">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/1.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/2.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/5.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/3.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/4.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/6.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/7.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/8.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/9.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/10.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/11.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/12.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/13.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/14.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/15.png">
-<meta property="og:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/16.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/1.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/2.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/5.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/3.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/4.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/6.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/7.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/8.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/9.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/10.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/11.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/12.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/13.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/14.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/15.png">
+<meta property="og:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/16.png">
 <meta property="article:published_time" content="2020-09-05T08:41:41.000Z">
 <meta property="article:modified_time" content="2020-09-05T10:58:36.998Z">
 <meta property="article:author" content="风之小云天">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.yawujia.cn/2020/09/05/mysql-master-slave/1.png">
+<meta name="twitter:image" content="https://www.yawujia.cn/2020/09/05/mysql-master-slave/1.png">
   
     <link rel="alternative" href="/atom.xml" title="风之小云天的博客" type="application/atom+xml">
   
@@ -413,7 +413,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://www.yawujia.cn/2020/09/05/mysql-master-slave/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.yawujia.cn/2020/09/05/mysql-master-slave/" alt="微信分享二维码">
     </div>
 </div>
 
