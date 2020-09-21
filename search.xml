@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hadoop 学习</title>
-    <url>/2020/09/15/hadoop/</url>
-    <content><![CDATA[<h3 id="Hadoop-是一个能够对大量数据进行分布式处理的软件框架，并且是以一种可靠、高效、可伸缩的方式进行处理的，它具有以下几个方面的特性："><a href="#Hadoop-是一个能够对大量数据进行分布式处理的软件框架，并且是以一种可靠、高效、可伸缩的方式进行处理的，它具有以下几个方面的特性：" class="headerlink" title="Hadoop 是一个能够对大量数据进行分布式处理的软件框架，并且是以一种可靠、高效、可伸缩的方式进行处理的，它具有以下几个方面的特性："></a>Hadoop 是一个能够对大量数据进行分布式处理的软件框架，并且是以一种可靠、高效、可伸缩的方式进行处理的，它具有以下几个方面的特性：</h3><ul>
-<li>高可靠性</li>
-<li>高效性</li>
-<li>高可扩展性</li>
-<li>高容错性</li>
-<li>成本低</li>
-<li>运行在Linux平台上</li>
-<li>支持多种编程语言</li>
-</ul>
-<p>详细介绍这里就不赘述了，参考厦门大学林子雨老师的课程: <a href="http://dblab.xmu.edu.cn/wp-content/uploads/2016/01/Chapter2-%E5%8E%A6%E9%97%A8%E5%A4%A7%E5%AD%A6-%E6%9E%97%E5%AD%90%E9%9B%A8-%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8%EF%BC%88%E7%AC%AC2%E7%89%88%E6%95%99%E6%9D%90%EF%BC%89-%E7%AC%AC2%E7%AB%A0-%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%9E%B6%E6%9E%84Hadoop%EF%BC%882017%E5%B9%B42%E6%9C%88%E7%89%88%E6%9C%AC%EF%BC%89.pdf" target="_blank" rel="noopener">大数据技术原理和应用</a></p>
-<a id="more"></a>
-
-
-]]></content>
-  </entry>
-  <entry>
     <title>maven 学习</title>
     <url>/2020/09/14/maven-study/</url>
     <content><![CDATA[<h3 id="maven-是为-java-项目打造的管理和构建工具，主要功能有"><a href="#maven-是为-java-项目打造的管理和构建工具，主要功能有" class="headerlink" title="maven 是为 java 项目打造的管理和构建工具，主要功能有:"></a>maven 是为 java 项目打造的管理和构建工具，主要功能有:</h3><ul>
@@ -49,6 +31,7 @@
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">project.reporting.outputEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.reporting.outputEncoding</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">java.version</span>&gt;</span>8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>然后就可以在 <code>target</code> 目录获得编译后自动打包的 jar</p>
+<p>我的博客即将同步至腾讯云+社区，邀请大家一同入驻：<a href="https://cloud.tencent.com/developer/support-plan?invite_code=3vwytile8e04o" target="_blank" rel="noopener">https://cloud.tencent.com/developer/support-plan?invite_code=3vwytile8e04o</a></p>
 ]]></content>
   </entry>
   <entry>
