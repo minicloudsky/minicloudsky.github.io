@@ -9,9 +9,10 @@
 <li>提供了一套依赖管理机制</li>
 <li>Maven 使用 pom.xml 定义项目内容，并使用预设的目录结构；</li>
 <li>在 Maven 中声明一个依赖项可以自动下载并导入 classpath；</li>
-<li>Maven 使用 groupId，artifactId 和 version 唯一定位一个依赖</li>
+<li>Maven 使用 groupId，artifactId 和 version 唯一定位一个依赖<a id="more"></a>
+<h1 id="maven-依赖关系"><a href="#maven-依赖关系" class="headerlink" title="maven 依赖关系"></a>maven 依赖关系</h1></li>
 </ul>
-<h1 id="maven-依赖关系"><a href="#maven-依赖关系" class="headerlink" title="maven 依赖关系"></a>maven 依赖关系</h1><p>依赖关系<br>Maven 定义了几种依赖关系，分别是 compile、test、runtime 和 provided：</p>
+<p>依赖关系<br>Maven 定义了几种依赖关系，分别是 compile、test、runtime 和 provided：</p>
 <p>scope 说明 示例<br>compile 编译时需要用到该 jar 包（默认） commons-logging<br>test 编译 Test 时需要用到该 jar 包 junit<br>runtime 编译时不需要，但运行时需要用到 mysql<br>provided 编译时需要用到，但运行时由 JDK 或某个服务器提供 servlet-api</p>
 <p>默认的 compile 是最常用的，Maven 会把这种类型的依赖直接放入 classpath<br>test 依赖表示仅在测试时使用，正常运行时并不需要。最常用的 test 依赖就是 JUnit：</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.junit.jupiter<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit-jupiter-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>5.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -43,7 +44,8 @@
 <img src="/2020/09/05/mysql-master-slave/1.png" alt></li>
 <li>在服务器上创建docker 文件目录与服务器本地文件目录的映射，稍后将mysql容器的文件映射到这个目录(这里是博主个人习惯喽，因为主要是为了防止容器丢失早晨数据丢失，把容器内的数据映射到服务器外面，这样就算服务器故障，下次把mysql容器重新挂载到这个mysql服务器上的目录就好了~)</li>
 <li>创建三个mysql目录<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@huawei container]<span class="comment"># pwd</span></span><br><span class="line">/home/container</span><br><span class="line">[root@huawei container]<span class="comment"># ll</span></span><br><span class="line">total 12</span><br><span class="line">drwxr-xr-x 6 root root 4096 Sep  4 23:47 mysql_master</span><br><span class="line">drwxr-xr-x 6 root root 4096 Sep  5 16:35 mysql_slave</span><br><span class="line">drwxr-xr-x 6 root root 4096 Sep  5 16:27 mysql_slave2</span><br></pre></td></tr></table></figure></li>
-<li>在每个 mysql 目录中创建 data、conf、log、mysql-files 三个目录<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@huawei container]<span class="comment"># tree -L 2</span></span><br><span class="line">.</span><br><span class="line">├── mysql_master</span><br><span class="line">│   ├── conf</span><br><span class="line">│   ├── data</span><br><span class="line">│   ├── <span class="built_in">log</span></span><br><span class="line">│   └── mysql-files</span><br><span class="line">├── mysql_slave</span><br><span class="line">│   ├── conf</span><br><span class="line">│   ├── data</span><br><span class="line">│   ├── <span class="built_in">log</span></span><br><span class="line">│   └── mysql-files</span><br><span class="line">└── mysql_slave2</span><br><span class="line">    ├── conf</span><br><span class="line">    ├── data</span><br><span class="line">    ├── <span class="built_in">log</span></span><br><span class="line">    └── mysql-files</span><br><span class="line"></span><br><span class="line">15 directories, 0 files</span><br></pre></td></tr></table></figure></li>
+<li>在每个 mysql 目录中创建 data、conf、log、mysql-files 三个目录<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@huawei container]<span class="comment"># tree -L 2</span></span><br><span class="line">.</span><br><span class="line">├── mysql_master</span><br><span class="line">│   ├── conf</span><br><span class="line">│   ├── data</span><br><span class="line">│   ├── <span class="built_in">log</span></span><br><span class="line">│   └── mysql-files</span><br><span class="line">├── mysql_slave</span><br><span class="line">│   ├── conf</span><br><span class="line">│   ├── data</span><br><span class="line">│   ├── <span class="built_in">log</span></span><br><span class="line">│   └── mysql-files</span><br><span class="line">└── mysql_slave2</span><br><span class="line">    ├── conf</span><br><span class="line">    ├── data</span><br><span class="line">    ├── <span class="built_in">log</span></span><br><span class="line">    └── mysql-files</span><br><span class="line"></span><br><span class="line">15 directories, 0 files</span><br></pre></td></tr></table></figure></li>
 <li>创建 master mysql<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[root@huawei container]<span class="comment"># docker run -it  --name mysql_master -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -v /home/container/mysql_master/mysql-files:/var/lib/mysql-files -v /home/container/mysql_master/conf:/etc/mysql -v /home/container/mysql_master/log:/var/log/mysql  -d mysql:latest</span></span><br></pre></td></tr></table></figure>
 <h4 id="这里简单解释下-docker-命令，下面不再赘述"><a href="#这里简单解释下-docker-命令，下面不再赘述" class="headerlink" title="这里简单解释下 docker 命令，下面不再赘述"></a>这里简单解释下 docker 命令，下面不再赘述</h4><ul>
 <li>-i: 交互式操作。</li>
@@ -578,6 +580,8 @@
     <url>/2019/10/07/message-push/</url>
     <content><![CDATA[<p>​     在互联网业务中，有很多场景，都需要向用户推送消息，例如，一个论坛系统中，当用户发帖后，其他用户进行回复，需要对发帖者进行消息通知，在电商业务中，当用户下单后，管理后台需要通知用户下单成功；在一些秒杀和购物场景中，当用户提交订单未付款时候，一般会有一个截止时间，当即将到达截止时间时候，需要通知用户及时付款，在这些场景中，如何对用户实现消息通知呢?</p>
 <h3 id="简单消息推送"><a href="#简单消息推送" class="headerlink" title="简单消息推送"></a>简单消息推送</h3><p>  传统的开发模式，一般是前端轮询，例如在论坛系统中，在用户个人页面，前端轮询后端接口，后端返回对应的消息数据，这种方式需要每隔几秒就向后台发请求，对于实时性要求比较高的系统，轮询频率会更高，之前参与维护迭代的pc端消息推送，采用的是这种方式，前端轮询后端接口，后端通过查询数据库，判断是否有新消息，有的话就将数据返回给前端，前端进行弹窗或者其它方式进行展示，数据库设计大概如下：</p>
+ <a id="more"></a>
+
 <table>
 <thead>
 <tr>

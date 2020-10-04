@@ -19,7 +19,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yawujia.cn/2019/10/07/message-push/1.png">
 <meta property="article:published_time" content="2019-10-07T01:49:28.000Z">
-<meta property="article:modified_time" content="2020-07-30T07:47:19.017Z">
+<meta property="article:modified_time" content="2020-10-04T12:34:20.810Z">
 <meta property="article:author" content="风之小云天">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.yawujia.cn/2019/10/07/message-push/1.png">
@@ -239,6 +239,8 @@
       
         <p>​     在互联网业务中，有很多场景，都需要向用户推送消息，例如，一个论坛系统中，当用户发帖后，其他用户进行回复，需要对发帖者进行消息通知，在电商业务中，当用户下单后，管理后台需要通知用户下单成功；在一些秒杀和购物场景中，当用户提交订单未付款时候，一般会有一个截止时间，当即将到达截止时间时候，需要通知用户及时付款，在这些场景中，如何对用户实现消息通知呢?</p>
 <h3 id="简单消息推送"><a href="#简单消息推送" class="headerlink" title="简单消息推送"></a>简单消息推送</h3><p>  传统的开发模式，一般是前端轮询，例如在论坛系统中，在用户个人页面，前端轮询后端接口，后端返回对应的消息数据，这种方式需要每隔几秒就向后台发请求，对于实时性要求比较高的系统，轮询频率会更高，之前参与维护迭代的pc端消息推送，采用的是这种方式，前端轮询后端接口，后端通过查询数据库，判断是否有新消息，有的话就将数据返回给前端，前端进行弹窗或者其它方式进行展示，数据库设计大概如下：</p>
+ <a id="more"></a>
+
 <table>
 <thead>
 <tr>
