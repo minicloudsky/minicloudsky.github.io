@@ -506,6 +506,29 @@
       </tags>
   </entry>
   <entry>
+    <title>裸辞跑路面试过程</title>
+    <url>/2020/04/25/march-april-interview-summary/</url>
+    <content><![CDATA[<h2 id="这里是正文"><a href="#这里是正文" class="headerlink" title="这里是正文"></a>这里是正文</h2><h1 id="深信服云管理平台开发-电话一面挂"><a href="#深信服云管理平台开发-电话一面挂" class="headerlink" title="深信服云管理平台开发 电话一面挂"></a>深信服云管理平台开发 电话一面挂</h1><p>二维 01 数组求矩形最大面积 dp 单链表长度未知，求第 n 个节点的值<br>两个字符串数组，求 B 数组里面，不包含 A 数组所有字符的字符<br>MySQL 索引优化，索引类型，B+树查询搜索，主从复制原理，MySQL 事务，主从分离原理<br>redis 数据类型，hash 数据结构底层实现，aof,rdb 实现原理，区别<br>装饰器实现原理，GIL，内存回收机制<br>简单说下二叉查找树，红黑树和哈希表性能比较<br>你们单元测试覆盖率，怎么尽量覆盖到所有代码</p>
+<p>深圳招银网络 Java B 卷，牛客网笔试<br>Spring 框架结构,pom 等配置文件加载顺序<br>Jvm 内存调优，参数作用<br>Mybatis 相关的配置，orm<br>底层实现原理<br>项目管理，类似于 UML 一类的流程图，项目进度管理<br>Sql 查询语句，删除包含 A B 的所有数据<br>微服务和 soa 比较，优缺点<br>编程题<br>1 字符串处理，把 a-z 和<em>的字符串的</em>都移动到左边<br>Etc<br>cmbnt*a<br>*cmbnta<br>第二题给定一个数组 a，求数组元素和为 x 的子集个数<br>如 a=[1,2,3,4,5],和为 1 的子集个数为 1<br>第三题数据库两个表查询，难度不是很大</p>
+<p>北京 leancloud 公司做 iaas 的，类似于把后端都封装下，前端直接调接口<br>python 开发岗</p>
+<p>一面过<br>工作项目介绍<br>有序数组分割成两部分，如[4,5,6,1,2,3]，查找元素 x<br>mysql 索引、事务、数据库查询优化、explain 命令使用，MySQL 分库分表策略<br>Elasticsearch match 与 term 区别<br>redis 缓存 、rdb 、aof 区别<br>python 装饰器</p>
+<p>二面挂<br>MySQL 数据缓存到 redis，redis key 更新策略，binlog 是什么<br>你们项目 qps 多少，峰值请求大概多少<br>链表反转<br>mysql 查询优化<br>其他的想不起来了</p>
+<p>taka 软件,v2ex 上看到的，日本 java 外包<br>基本上没问什么难的技术，聊聊项目，一顿忽悠，mysql java 简单介绍下，吹吹牛逼，<br>谈谈个人技术发展方向，给过了，就是要去日本，公司规模 20 多人，外包到日本公司，<br>没多大前途就拒绝了。</p>
+<p>广州玩动网络 做游戏发行运营，php 开发<br>一面，到广州公司面试<br>个人项目介绍<br>文件描述符是什么，怎么用<br>docker 网络了解吗，介绍下 docker compose 使用，介绍下 dockerfile，dockerfile 的 ENTRYPOINT 和 cmd 有什么区别<br>php Yii CI TP 都有个特性叫 IOC,简单介绍下 IOC,怎么实现的<br>介绍下堆，二叉树，红黑树，红黑树的旋转怎么实现的<br>进程、线程区别<br>php7 新特性<br>个人职业规划，为什么从深圳来广州发展<br>你对游戏行业了解多少，有同学做游戏开发吗，对游戏行业的看法<br>二面视频面<br>时间长记得不是太清楚，问了下 docker 和数据库索引优化，redis list 底层实现<br>过了一天给 offer 了，HR 说加班会比较多，年终在 2 左右，纠结了好几天，下定决心不做 php，就拒绝了。</p>
+<p>深圳小雨伞保险<br>php 开发<br>一面<br>项目介绍<br>tcp 三次握手，第三次能传数据吗<br>php7 新特性<br>堆、二叉树<br>mysql 索引，查询优化<br>其他的记不得了<br>二面<br>下定决心不做 php 后二面就没去</p>
+<p>北京 下厨房 python 开发<br>一面视频面手写代码挂<br>用 python 实现一个缓存装饰器+单元测试<br>当时对装饰器理解不够，没做出来挂了</p>
+<p>深圳 货拉拉 php 开发<br>一面视频面挂<br>项目介绍<br>php7 新特性<br>mysql 索引、查询优化、innodb 和 mysqism 引擎区别<br>介绍下 RESTful mvc<br>rabbitmq 消息重复消费怎么处理<br>其他的记不清楚了，问的 php 框架语法层比较多，因为对 php 不是很熟悉挂了</p>
+<p>上海诺亚财富 大数据平台开发<br>一面视频面<br>项目介绍<br>介绍下装饰器<br>深拷贝与浅拷贝区别<br>赋值与浅拷贝区别<br>django orm<br>python gc<br>es term 与 match 区别<br>es 索引 分词器<br>mysql 引擎与查询优化<br>MongoDB 了解吗，sql 与 Nosql 区别</p>
+<p>二面电话面<br>装饰器<br>django Model.objects.xxx 后面的方法如何自定义<br>django middleware 了解吗<br>一个请求从前端到后端是怎么样的，django 如何处理的<br>tornado 有了解吗，介绍下协程<br>python gc<br>mysql 索引优化，哪几种情况下，mysql 查询不会用到索引，分库分表<br>es 索引<br>爬虫，简单介绍下爬虫工作原理<br>pandas 熟悉吗，怎么计算，pandas 有个好用的方法选中列知道吗，因为很久没看 pandas，记得不是很清楚<br>你平常是如何提升技术的<br>个人发展<br>其他的记得不太清楚了<br>拿到 offer</p>
+<p>广州省省回头车<br>一面<br>tcp 三次握手四次挥手<br>装饰器<br>mysql 索引、查询优化<br>flask 框架<br>docker compose 命令，有哪些指令<br>redis key、hash、zset 底层实现，介绍下 hash<br>你们项目用户量，qps<br>其他的记得不太清楚<br>二面因为时间冲突太远了，就没去</p>
+<p>上海谷露软件 python 开发</p>
+<p>一面<br>python 装饰器<br>redis key、set、zset 底层实现<br>django dispatch 实现<br>django 请求处理，urls、middleware<br>mysql 索引优化<br>消息队列应用场景 rabbitmq 消息重复消费怎么处理</p>
+<p>二面<br>深拷贝浅拷贝<br>mysql 索引<br>django urls views models 介绍<br>es match 与 term 区别，es 分词器<br>其他的记得不太清楚了</p>
+<p>三面<br>mysql 索引，查询优化，分库分表<br>redis 缓存介绍<br>介绍下项目，最有成就感的项目是什么，你们需求是产品提的还是运营根据客户需求提的<br>django 框架方面<br>你的优点和缺点，你们项目怎么部署的<br>离职原因，为什么想去上海发展<br>未来职业规划，个人发展方向<br>三面聊的项目比较多<br>四面<br>大部分时间在和 HR 闲聊，他们 HR 还套路我拿到几个 offer 哈哈</p>
+<a id="more"></a>
+]]></content>
+  </entry>
+  <entry>
     <title>Linux中swap与memory介绍</title>
     <url>/2020/02/09/virtual-memory/</url>
     <content><![CDATA[<h1 id="1-背景介绍"><a href="#1-背景介绍" class="headerlink" title="1. 背景介绍"></a>1. 背景介绍</h1><p> 这篇文章介绍一下 Linux 中 swap 与 memory。memory 就是机器的物理内存ram，读写速度低于 cpu 一个量级，但是高于磁盘不止一个量级。所以，程序和数据如果在内存的话，会有非常快的读写速度。但是，内存的造价是要高于磁盘的，虽然相对来说价格一直在降低。除此之外，内存的断电丢失数据也是一个原因，因此不能把所有数据和程序都保存在内存中。既然不能全部使用内存，那数据还有程序肯定不可能一直霸占在内存中。当内存没有可用的，就必须要把内存中不经常运行的程序给踢出去。但是踢到哪里去，这时候 swap 就出现了。<strong>swap 全称为 swap place，即交换区</strong>，当内存不够的时候，被踢出的进程数据被暂时存储到交换区。当需要这条被踢出的进程的时候，就从交换区重新加载到内存，否则它不会主动交换到真实内存中。</p>
@@ -777,45 +800,6 @@
       </categories>
       <tags>
         <tag>docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>深信服实习</title>
-    <url>/2019/04/25/sangfor/</url>
-    <content><![CDATA[<p>年前在boss上和实验室的小伙伴一起投简历找实习，拿到了深信服年后实习的offer，从2月一个人来到深圳这个陌生的城市实习，到慢慢认识一群可爱有趣的小伙伴，因为学校让回去搞毕业相关东西的原因，迫不得已要回学校，总结下在深信服这两个多月的实习工作经验。</p>
-<ol>
-<li>明确需求再编码，如果需求有疑问直接找产品经理确定。</li>
-<li>多学习项目的公共接口或方法，优先调用项目公共方法，没有的自己再编码，避免重复造轮子，提高开发效率。注意将重复性代码写作公共方法，提高代码复用性，减少冗余代码量。</li>
-<li>注意个人代码风格 ，与公司项目保持统一，每次定义常量时，先查看每个app的常量里面是否已经有定义，有的话直接使用，不要重复定义，尽量不要出现魔数，对于功能性常量，用const定义在本类中，最好加上注释方便理解，代码的可读性也非常重要，没有改动代码不要提交到git，常用快捷键格式化代码，代码风格统一。</li>
-<li>注意不要循环查数据库,降低循环次数，提高服务性能。</li>
-</ol>
-<h2 id="实习期间的点点滴滴"><a href="#实习期间的点点滴滴" class="headerlink" title="实习期间的点点滴滴"></a>实习期间的点点滴滴</h2><ul>
-<li>第一天，导师带领下去吃饭，装电脑，配置网络<br><img src="/2019/04/25/sangfor/1.jpg" alt></li>
-<li>实习时候还带着我婷婷姐之前送我的水杯，超级好用<br><img src="/2019/04/25/sangfor/2.jpg" alt><br><img src="/2019/04/25/sangfor/3.jpg" alt></li>
-<li>公司<br><img src="/2019/04/25/sangfor/4.jpg" alt><br><img src="/2019/04/25/sangfor/5.jpg" alt><br><img src="/2019/04/25/sangfor/6.jpg" alt></li>
-<li>秀一波公司的美食O(∩_∩)O哈哈~<br><img src="/2019/04/25/sangfor/7.jpg" alt><br><img src="/2019/04/25/sangfor/8.jpg" alt><br><img src="/2019/04/25/sangfor/9.jpg" alt><br><img src="/2019/04/25/sangfor/10.jpg" alt><br><img src="/2019/04/25/sangfor/11.jpg" alt><br><img src="/2019/04/25/sangfor/39.jpg" alt></li>
-<li>西丽买的超实惠好吃的潮汕米粉<br><img src="/2019/04/25/sangfor/12.jpg" alt></li>
-<li>晚上下班，西丽街口跳广场舞的人们<br><img src="/2019/04/25/sangfor/13.jpg" alt></li>
-<li>在西丽买东西时候看的哦一个好看的小姐姐<br><img src="/2019/04/25/sangfor/14.jpg" alt><br><img src="/2019/04/25/sangfor/15.jpg" alt></li>
-<li>工卡<br><img src="/2019/04/25/sangfor/16.jpg" alt><br><img src="/2019/04/25/sangfor/17.jpg" alt></li>
-<li>公司内部交流打卡软件，口袋助理<br><img src="/2019/04/25/sangfor/18.jpg" alt></li>
-<li>张新兰姐姐哈哈，好可爱n(<em>≧▽≦</em>)n<br><img src="/2019/04/25/sangfor/19.jpg" alt></li>
-<li>公司全家福<br><img src="/2019/04/25/sangfor/24.jpg" alt><br><img src="/2019/04/25/sangfor/25.jpg" alt></li>
-<li>公司安排的西丽的好美酒店，每天和陶世婷小姐姐一起上下班<br><img src="/2019/04/25/sangfor/26.jpg" alt><br><img src="/2019/04/25/sangfor/27.jpg" alt></li>
-<li>清明节放假去后海浪<br><img src="/2019/04/25/sangfor/28.jpg" alt></li>
-<li>写代码<br><img src="/2019/04/25/sangfor/29.jpg" alt></li>
-<li>去寄快递的陶世婷小姐姐<br><img src="/2019/04/25/sangfor/38.jpg" alt><br><img src="/2019/04/25/sangfor/40.jpg" alt></li>
-<li>跟陶世婷小姐姐一块回去<br><img src="/2019/04/25/sangfor/30.jpg" alt></li>
-<li>南科大，呜呜呜，就在公司旁边，可惜打卡才能进去，只能站在外面看看，难受(╯﹏╰)<br><img src="/2019/04/25/sangfor/36.jpg" alt></li>
-<li>你知道夜晚11点的南山智园吗<br><img src="/2019/04/25/sangfor/37.jpg" alt><br><img src="/2019/04/25/sangfor/40.jpg" alt></li>
-</ul>
-]]></content>
-      <categories>
-        <category>实习</category>
-      </categories>
-      <tags>
-        <tag>实习</tag>
-        <tag>工作</tag>
       </tags>
   </entry>
   <entry>
