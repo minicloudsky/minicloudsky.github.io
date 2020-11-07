@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>mysql-date</title>
-    <url>/2020/11/01/mysql-date/</url>
-    <content><![CDATA[<h2 id="这里是正文"><a href="#这里是正文" class="headerlink" title="这里是正文"></a>这里是正文</h2><a id="more"></a>
+    <title>mysql 日期函数</title>
+    <url>/2020/11/01/mysql-utils/</url>
+    <content><![CDATA[<h2 id="记录下常用的-mysql-日期函数"><a href="#记录下常用的-mysql-日期函数" class="headerlink" title="记录下常用的 mysql 日期函数"></a>记录下常用的 mysql 日期函数</h2><p>yesterday = DATE_SUB(CURDATE(), INTERVAL 1 DAY)<br>last_week = DATE_SUB(CURDATE(), INTERVAL 1 week)<br>last_month = DATE_SUB(CURDATE(), INTERVAL 1 month)<br>last_three_month = DATE_SUB(CURDATE(), INTERVAL 3 month)<br>last_year = DATE_SUB(CURDATE(),INTERVAL 1 year)</p>
+<h3 id="case-when-判断"><a href="#case-when-判断" class="headerlink" title="case when 判断"></a>case when 判断</h3><p>SELECT<br>CASE</p>
+<pre><code>WHEN
+    1 = 2 THEN
+        1 ELSE 0 
+        END AS num</code></pre><a id="more"></a>
 
 ]]></content>
   </entry>
