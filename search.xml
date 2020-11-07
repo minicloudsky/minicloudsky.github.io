@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>mysql-date</title>
+    <url>/2020/11/01/mysql-date/</url>
+    <content><![CDATA[<h2 id="这里是正文"><a href="#这里是正文" class="headerlink" title="这里是正文"></a>这里是正文</h2><a id="more"></a>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>pandas 基础</title>
+    <url>/2020/10/09/pandas-basic/</url>
+    <content><![CDATA[<h2 id="pandas-是一个开源的数据分析和数据操作库，这里记录下-pandas-常用的基础操作"><a href="#pandas-是一个开源的数据分析和数据操作库，这里记录下-pandas-常用的基础操作" class="headerlink" title="pandas 是一个开源的数据分析和数据操作库，这里记录下 pandas 常用的基础操作"></a>pandas 是一个开源的数据分析和数据操作库，这里记录下 pandas 常用的基础操作</h2><ol>
+<li>创建 <code>DataFrame</code><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">   In [<span class="number">14</span>]: df = pd.DataFrame(&#123; </span><br><span class="line">    ...:     <span class="string">'item_name'</span>:[<span class="string">'cup'</span>,<span class="string">'pants'</span>,<span class="string">'shoes'</span>,<span class="string">'coat'</span>,<span class="string">'sunglasses'</span>],   </span><br><span class="line">    ...:         <span class="string">'brand'</span>: [<span class="string">'Yum Yum'</span>, <span class="string">'Yum Yum'</span>, <span class="string">'Indomie'</span>, <span class="string">'Indomie'</span>, <span class="string">'Indomie'</span>], </span><br><span class="line">    ...:             <span class="string">'style'</span>: [<span class="string">'cup'</span>, <span class="string">'cup'</span>, <span class="string">'cup'</span>, <span class="string">'pack'</span>, <span class="string">'pack'</span>], </span><br><span class="line">    ...:                 <span class="string">'rating'</span>: [<span class="number">4</span>, <span class="number">4</span>, <span class="number">3.5</span>, <span class="number">15</span>, <span class="number">5</span>], </span><br><span class="line">    ...:                     <span class="string">'price'</span>: [<span class="number">12</span>,<span class="number">34.3</span>,<span class="number">78.1</span>,<span class="number">61</span>,<span class="number">91</span>], </span><br><span class="line">    ...:                     &#125;)                             </span><br><span class="line">    In [<span class="number">15</span>]: df                                                                                        </span><br><span class="line">    Out[<span class="number">15</span>]: </span><br><span class="line">    item_name    brand style  rating  price</span><br><span class="line">    <span class="number">0</span>         cup  Yum Yum   cup     <span class="number">4.0</span>   <span class="number">12.0</span></span><br><span class="line">    <span class="number">1</span>       pants  Yum Yum   cup     <span class="number">4.0</span>   <span class="number">34.3</span></span><br><span class="line">    <span class="number">2</span>       shoes  Indomie   cup     <span class="number">3.5</span>   <span class="number">78.1</span></span><br><span class="line">    <span class="number">3</span>        coat  Indomie  pack    <span class="number">15.0</span>   <span class="number">61.0</span></span><br><span class="line">    <span class="number">4</span>  sunglasses  Indomie  pack     <span class="number">5.0</span>   <span class="number">91.0</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">16</span>]:</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<a id="more"></a>
+
+]]></content>
+  </entry>
+  <entry>
     <title>maven 学习</title>
     <url>/2020/09/14/maven-study/</url>
     <content><![CDATA[<h3 id="maven-是为-java-项目打造的管理和构建工具，主要功能有"><a href="#maven-是为-java-项目打造的管理和构建工具，主要功能有" class="headerlink" title="maven 是为 java 项目打造的管理和构建工具，主要功能有:"></a>maven 是为 java 项目打造的管理和构建工具，主要功能有:</h3><ul>
