@@ -8,15 +8,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://www.yawujia.cn">
-  <title>Category: 心情 | 风之小云天的博客</title>
+  <title>java 实现四舍六入 | 风之小云天的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="风之小云天的学习博客，编程和生活，不可或缺。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="风之小云天的博客">
-<meta property="og:url" content="https://www.yawujia.cn/categories/%E7%94%9F%E6%B4%BB/%E5%BF%83%E6%83%85/index.html">
+  <meta name="description" content="在金融业务场景中，计算金额经常需要保留位数，由于保留位数有限，经常需要取舍的情况，往往在电商、银行系统中，金额是以整数形式保存，单位为货币最小单位，例如分。但是在结算时额外的参数如折扣、利率、税率等存在着大量的浮点数，计算结果则需要转换为整数。简单处理一般是四舍五入，但是这样存在很明显的问题，就是 “入” 的概率大于 “舍”，明显的，遇到 1、2、3、4 舍，遇到 5、6、7、8、9 入，粗看这种">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java 实现四舍六入">
+<meta property="og:url" content="https://www.yawujia.cn/2020/12/17/java-banker-round/index.html">
 <meta property="og:site_name" content="风之小云天的博客">
-<meta property="og:description" content="风之小云天的学习博客，编程和生活，不可或缺。">
+<meta property="og:description" content="在金融业务场景中，计算金额经常需要保留位数，由于保留位数有限，经常需要取舍的情况，往往在电商、银行系统中，金额是以整数形式保存，单位为货币最小单位，例如分。但是在结算时额外的参数如折扣、利率、税率等存在着大量的浮点数，计算结果则需要转换为整数。简单处理一般是四舍五入，但是这样存在很明显的问题，就是 “入” 的概率大于 “舍”，明显的，遇到 1、2、3、4 舍，遇到 5、6、7、8、9 入，粗看这种">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-17T09:41:11.000Z">
+<meta property="article:modified_time" content="2020-12-18T01:46:25.549Z">
 <meta property="article:author" content="风之小云天">
 <meta name="twitter:card" content="summary">
   
@@ -210,78 +212,201 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java-banker-round" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/12/12/zhouyi-qiangua/" class="archive-article-date">
-  <time datetime="2017-12-12T08:39:55.000Z" itemprop="datePublished"
-    ><i class="icon-calendar icon"></i>2017-12-12</time
-  >
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/12/zhouyi-qiangua/">周易-乾卦</a>
+    <h1 class="article-title" itemprop="name">
+      java 实现四舍六入
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/2020/12/17/java-banker-round/" class="archive-article-date">
+  <time datetime="2020-12-17T09:41:11.000Z" itemprop="datePublished"
+    ><i class="icon-calendar icon"></i>2020-12-17</time
+  >
+</a>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/生活//" class="article-tag-list-link color3">生活</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/生活/心情//" class="article-tag-list-link color3">心情</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="在金融业务场景中，计算金额经常需要保留位数，由于保留位数有限，经常需要取舍的情况，往往在电商、银行系统中，金额是以整数形式保存，单位为货币最小单位，例如分。但是在结算时额外的参数如折扣、利率、税率等存在着大量的浮点数，计算结果则需要转换为整数。"><a href="#在金融业务场景中，计算金额经常需要保留位数，由于保留位数有限，经常需要取舍的情况，往往在电商、银行系统中，金额是以整数形式保存，单位为货币最小单位，例如分。但是在结算时额外的参数如折扣、利率、税率等存在着大量的浮点数，计算结果则需要转换为整数。" class="headerlink" title="在金融业务场景中，计算金额经常需要保留位数，由于保留位数有限，经常需要取舍的情况，往往在电商、银行系统中，金额是以整数形式保存，单位为货币最小单位，例如分。但是在结算时额外的参数如折扣、利率、税率等存在着大量的浮点数，计算结果则需要转换为整数。"></a>在金融业务场景中，计算金额经常需要保留位数，由于保留位数有限，经常需要取舍的情况，往往在电商、银行系统中，金额是以整数形式保存，单位为货币最小单位，例如分。但是在结算时额外的参数如折扣、利率、税率等存在着大量的浮点数，计算结果则需要转换为整数。</h2><h3 id="简单处理一般是四舍五入，但是这样存在很明显的问题，就是-“入”-的概率大于-“舍”，明显的，遇到-1、2、3、4-舍，遇到-5、6、7、8、9-入，粗看这种就可以发现问题。如果想要两边平衡，则-“四舍六入”-才是合理的，但是，5-怎么办？"><a href="#简单处理一般是四舍五入，但是这样存在很明显的问题，就是-“入”-的概率大于-“舍”，明显的，遇到-1、2、3、4-舍，遇到-5、6、7、8、9-入，粗看这种就可以发现问题。如果想要两边平衡，则-“四舍六入”-才是合理的，但是，5-怎么办？" class="headerlink" title="简单处理一般是四舍五入，但是这样存在很明显的问题，就是 “入” 的概率大于 “舍”，明显的，遇到 1、2、3、4 舍，遇到 5、6、7、8、9 入，粗看这种就可以发现问题。如果想要两边平衡，则 “四舍六入” 才是合理的，但是，5 怎么办？"></a>简单处理一般是四舍五入，但是这样存在很明显的问题，就是 “入” 的概率大于 “舍”，明显的，遇到 1、2、3、4 舍，遇到 5、6、7、8、9 入，粗看这种就可以发现问题。如果想要两边平衡，则 “四舍六入” 才是合理的，但是，5 怎么办？</h3><p>具体问题可以看下这个回答</p>
+<p><a href="https://www.zhihu.com/question/28943072/answer/42673180" target="_blank" rel="noopener">https://www.zhihu.com/question/28943072/answer/42673180</a></p>
+<h3 id="在大量样本中，四舍五入后的计算结果的总和会明显大于直接计算总和的结果，对金融单位计算利息来说，这样很显然是一个亏本的行为，如果不亏本的算，依旧是简单处理，那么结果相反，客户就不开心了，在-sql-中经常也需要进行四舍六入操作，这里我们可以用java-实现，然后编译成-udf，就可以在-sql-中使用了。"><a href="#在大量样本中，四舍五入后的计算结果的总和会明显大于直接计算总和的结果，对金融单位计算利息来说，这样很显然是一个亏本的行为，如果不亏本的算，依旧是简单处理，那么结果相反，客户就不开心了，在-sql-中经常也需要进行四舍六入操作，这里我们可以用java-实现，然后编译成-udf，就可以在-sql-中使用了。" class="headerlink" title="在大量样本中，四舍五入后的计算结果的总和会明显大于直接计算总和的结果，对金融单位计算利息来说，这样很显然是一个亏本的行为，如果不亏本的算，依旧是简单处理，那么结果相反，客户就不开心了，在 sql 中经常也需要进行四舍六入操作，这里我们可以用java 实现，然后编译成 udf，就可以在 sql 中使用了。"></a>在大量样本中，四舍五入后的计算结果的总和会明显大于直接计算总和的结果，对金融单位计算利息来说，这样很显然是一个亏本的行为，如果不亏本的算，依旧是简单处理，那么结果相反，客户就不开心了，在 sql 中经常也需要进行四舍六入操作，这里我们可以用java 实现，然后编译成 <code>udf</code>，就可以在 sql 中使用了。</h3><h3 id="银行家舍入（Banker’s-Round）"><a href="#银行家舍入（Banker’s-Round）" class="headerlink" title="银行家舍入（Banker’s Round）"></a>银行家舍入（Banker’s Round）</h3><p>亦叫做 “四舍六入五成双” ，四舍六入，使得两头（即进和舍）概率相等，但是，在 4 和 6 之间的 5 就需要特别对待。具体规则如下：</p>
+<p>舍去位的数值小于5时，直接舍去；<br>舍去位的数值大于等于6时，进位后舍去；<br>当舍去位的数值等于5时，分两种情况：5后面还有其他数字（非0），则进位后舍去；若5后面是0（即5是最后一位），则根据5前一位数的奇偶性来判断是否需要进位，奇数进位，偶数舍去。<br>舍去位，当小于 5，即 0 ~ 4.999999…… 则舍去，大于 6，即 6 ~ 10 则进位，则中间区间那个数字，5 ~ 5.999999…… ，只要使该区间内存在的数字平均分布，即可保证取舍概率相等。于是得到上述算法。</p>
+<a id="more"></a>
+<p>按上述规则，之前的 2.55 + 3.45 = 6 得出的结果如下：</p>
+<p>2.6 + 3.4 = 6<br>在 java 中，BigDecimal 中 <code>ROUND_HALF_EVEN</code> 实现了 银行家舍入，具体参考 <a href="https://docs.oracle.com/javase/7/docs/api/java/math/BigDecimal.html#ROUND_HALF_EVEN" target="_blank" rel="noopener">ROUND_HALF_EVEN</a><br><code>ROUND_HALF_EVEN
+public static final int ROUND_HALF_EVEN
+Rounding mode to round towards the &quot;nearest neighbor&quot; unless both neighbors are equidistant, in which case, round towards the even neighbor. Behaves as for ROUND_HALF_UP if the digit to the left of the discarded fraction is odd; behaves as for ROUND_HALF_DOWN if it&#39;s even. Note that this is the rounding mode that minimizes cumulative error when applied repeatedly over a sequence of calculations.
+See Also:
+Constant Field Values</code><br>大概意思就是说，ROUND_HALF_EVEN 模式会取最近的邻居除非两个邻居都是相等的，无论在哪种情况下，round 会取偶数的邻居，如果保留位数的左边数字是奇数的话会向上进位，如果左边位数是偶数的话会向下舍去，这是舍入模式,最大限度地减少累积误差时反复应用一系列的计算。</p>
+<h3 id="具体实现和测试代码如下"><a href="#具体实现和测试代码如下" class="headerlink" title="具体实现和测试代码如下:"></a>具体实现和测试代码如下:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> com.company;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.math.MathContext;</span><br><span class="line"><span class="keyword">import</span> java.math.RoundingMode;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        <span class="comment">/****</span></span><br><span class="line"><span class="comment">         * 银行家舍入</span></span><br><span class="line"><span class="comment">         * 也叫做 四舍六入五成双，使得两头(即进和舍)概率相等，但是，在4和6之间的5需要特别对待，</span></span><br><span class="line"><span class="comment">         * 具体规则如下:</span></span><br><span class="line"><span class="comment">         * 1 舍去位的数值小于5时，直接舍去；</span></span><br><span class="line"><span class="comment">         * 2 舍去位的数值大于等于6时，进位后舍去；</span></span><br><span class="line"><span class="comment">         * 3 当舍去位的数值等于5时，分两种情况：5后面还有其他数字（非0），</span></span><br><span class="line"><span class="comment">         * 则进位后舍去；若5后面是0（即5是最后一位），则根据5前一位数的奇偶性来判断是否需要进位，</span></span><br><span class="line"><span class="comment">         * 奇数进位，偶数舍去。</span></span><br><span class="line"><span class="comment">         * 舍去位，当小于 5，即 0 ~ 4.999999…… 则舍去，大于 6，</span></span><br><span class="line"><span class="comment">         * 即 6 ~ 10 则进位，则中间区间那个数字，5 ~ 5.999999…… ，</span></span><br><span class="line"><span class="comment">         * 只要使该区间内存在的数字平均分布，即可保证取舍概率相等。于是得到上述算法。</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        ArrayList&lt;BigDecimal&gt; arrayList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        arrayList.add(<span class="keyword">new</span> BigDecimal(<span class="string">"11.554"</span>));</span><br><span class="line">        arrayList.add(<span class="keyword">new</span> BigDecimal(<span class="string">"11.556"</span>));</span><br><span class="line">        arrayList.add(<span class="keyword">new</span> BigDecimal(<span class="string">"11.5551"</span>));</span><br><span class="line">        arrayList.add(<span class="keyword">new</span> BigDecimal(<span class="string">"11.550"</span>));</span><br><span class="line">        arrayList.add(<span class="keyword">new</span> BigDecimal(<span class="string">"11.560"</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrayList.size(); i++) &#123;</span><br><span class="line">            BigDecimal bigDecimal = arrayList.get(i);</span><br><span class="line">            bigDecimal = bigDecimal.round(<span class="keyword">new</span> MathContext(<span class="number">4</span>, RoundingMode.HALF_EVEN));</span><br><span class="line">            System.out.println(<span class="string">"before round: "</span> + arrayList.get(i) + <span class="string">"  afer round: "</span> + bigDecimal);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行如下:</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bash</span><br><span class="line"><span class="keyword">before</span> <span class="built_in">round</span>: <span class="number">11.554</span>  afer <span class="built_in">round</span>: <span class="number">11.55</span></span><br><span class="line"><span class="keyword">before</span> <span class="built_in">round</span>: <span class="number">11.556</span>  afer <span class="built_in">round</span>: <span class="number">11.56</span></span><br><span class="line"><span class="keyword">before</span> <span class="built_in">round</span>: <span class="number">11.5551</span>  afer <span class="built_in">round</span>: <span class="number">11.56</span></span><br><span class="line"><span class="keyword">before</span> <span class="built_in">round</span>: <span class="number">11.550</span>  afer <span class="built_in">round</span>: <span class="number">11.55</span></span><br><span class="line"><span class="keyword">before</span> <span class="built_in">round</span>: <span class="number">11.560</span>  afer <span class="built_in">round</span>: <span class="number">11.56</span></span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> <span class="keyword">exit</span> code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>hive UDF 的注册和开发可以参考<br><a href="https://www.cnblogs.com/swordfall/p/11167486.html" target="_blank" rel="noopener">https://www.cnblogs.com/swordfall/p/11167486.html</a><br><a href="https://www.jianshu.com/p/c4bc53463379" target="_blank" rel="noopener">https://www.jianshu.com/p/c4bc53463379</a><br><a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF" target="_blank" rel="noopener">https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF</a></p>
 
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/uploads/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/uploads/weixin.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://www.yawujia.cn/2020/12/17/java-banker-round/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/12/17/collecting-hive-metadata/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          元数据采集 - hive 元数据采集
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/10/09/pandas-basic/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pandas 基础</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+  <div id="SOHUCS" sid="java-banker-round" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cyutuUft8",
+        conf: "ba09059edef60cc79f8ef12ee21d4f18"
+    });
+</script>
+</script>
+  
+  
+
+  
 
 
           </div>
@@ -316,10 +441,10 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
