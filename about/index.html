@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="关于我热爱技术，热爱阅读，热爱生活。 一个年轻人，一个逐梦者，一无所有，一往无前。">
+<meta name="description" content="关于我某公司数据平台开发小码农，专注于数据平台开发，对算法和云原生有浓厚兴趣。 Concact me:  email: minicloudsky@gmail.com Github">
 <meta property="og:type" content="website">
 <meta property="og:title" content="风之小云天的博客">
 <meta property="og:url" content="https://www.yawujia.cn/about/index.html">
 <meta property="og:site_name" content="风之小云天的博客">
-<meta property="og:description" content="关于我热爱技术，热爱阅读，热爱生活。 一个年轻人，一个逐梦者，一无所有，一往无前。">
+<meta property="og:description" content="关于我某公司数据平台开发小码农，专注于数据平台开发，对算法和云原生有浓厚兴趣。 Concact me:  email: minicloudsky@gmail.com Github">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-30T07:47:19.066Z">
-<meta property="article:modified_time" content="2020-07-30T07:47:19.066Z">
+<meta property="article:published_time" content="2020-12-27T10:05:54.200Z">
+<meta property="article:modified_time" content="2020-12-27T10:05:54.200Z">
 <meta property="article:author" content="风之小云天">
 <meta name="twitter:card" content="summary">
 
@@ -231,47 +231,9 @@
       
 
       
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            Search
-          </a>
-        </li>
-      
     </ul>
   
 
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
-
-
-
-
-    </div>
   
 </nav>
 
@@ -305,8 +267,12 @@
       <div class="post-body">
         
         
-          <h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>热爱技术，热爱阅读，热爱生活。</p>
-<p>一个年轻人，一个逐梦者，一无所有，一往无前。</p>
+          <h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>某公司数据平台开发小码农，专注于数据平台开发，对算法和云原生有浓厚兴趣。</p>
+<p>Concact me:</p>
+<ul>
+<li>email: <a href="mailto:minicloudsky@gmail.com">minicloudsky@gmail.com</a></li>
+<li><a href="http://www.github.com/minicloudsky" target="_blank" rel="noopener">Github</a></li>
+</ul>
 
         
       </div>
@@ -325,6 +291,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
 
   
 
@@ -628,6 +601,43 @@
 
 
 
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'minicloudsky',
+            repo: 'blogcomments',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '391f9084c972771384abd481f10987eb6c71851d',
+            
+                client_id: '344de168be8d2f5c320d'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
 
 
 
@@ -636,19 +646,6 @@
   
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 
