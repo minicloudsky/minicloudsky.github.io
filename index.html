@@ -1144,6 +1144,183 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.yawujia.cn/2020/10/22/hive-data-tilt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="风之小云天">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/img/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="风之小云天的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/10/22/hive-data-tilt/" itemprop="url">hive 数据倾斜</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-10-22T18:25:10+08:00">
+                2020-10-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.5k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="什么是数据倾斜？"><a href="#什么是数据倾斜？" class="headerlink" title="什么是数据倾斜？"></a>什么是数据倾斜？</h2><p>数据分布不均匀，造成数据大量的集中到一点，造成数据热点。</p>
+<h3 id="Hadoop-特性"><a href="#Hadoop-特性" class="headerlink" title="Hadoop 特性"></a>Hadoop 特性</h3><ul>
+<li>不怕数据量大，怕数据倾斜</li>
+<li>Job 数比较多的作业运行效率相对比较低，如很多子查询</li>
+<li>sum,count,max,min 等聚集函数，通常不会有数据倾斜问题<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>情形</th>
+<th>后果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>join</td>
+<td>其中一个表较小，但是key集中</td>
+<td>分发到某一个或者几个Reduce上的数据远高于平均值</td>
+</tr>
+<tr>
+<td></td>
+<td>大表与大表，但是分桶的判断字段0值或者空值太多</td>
+<td>这些空值 都由一个reduce处理，非常慢</td>
+</tr>
+<tr>
+<td>group by order by</td>
+<td>维度过小，某值的数量过多</td>
+<td>处理某值的 reduce 非常耗时</td>
+</tr>
+<tr>
+<td>count ,distinct</td>
+<td>某特殊值过多</td>
+<td>处理此特殊值的reduce 耗时</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/10/22/hive-data-tilt/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.yawujia.cn/2020/10/09/pandas-basic/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1576,173 +1753,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.yawujia.cn/2020/08/14/devops/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="风之小云天">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/assets/img/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="风之小云天的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/08/14/devops/" itemprop="url">运维开发笔记</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-14T14:33:42+08:00">
-                2020-08-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/devops/" itemprop="url" rel="index">
-                    <span itemprop="name">devops</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  174
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          ssh免密登录localhost配置1234567891011生成 ssh keysssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa将 ssh keys 输出到 authorized_keys中cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/08/14/devops/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1797,7 +1807,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1894,7 +1904,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">37.6k</span>
+    <span title="Site words total count">41.9k</span>
   
 </div>
 
