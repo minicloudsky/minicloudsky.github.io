@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Borg 论文笔记Google的Borg系统是一个集群管理器。它在多个万台机器规模的集群上运行着来自几千个不同应用的几十万个作业。Borg通过准入控制、高效的任务装箱、超售、机器共享、以及进程级别的性能隔离，实现了高利用率。它为高可用应用提供了可以减少故障恢复时间的运行时特性，以及降低关联故障概率的调度策略。Borg提供了声明式的作业描述语言、域名服务集成、实时作业监控、分析和模拟系统行为的工具。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Borg 论文笔记">
+<meta property="og:url" content="https://www.yawujia.cn/2021/03/27/borg/index.html">
+<meta property="og:site_name" content="风之小云天的博客">
+<meta property="og:description" content="Borg 论文笔记Google的Borg系统是一个集群管理器。它在多个万台机器规模的集群上运行着来自几千个不同应用的几十万个作业。Borg通过准入控制、高效的任务装箱、超售、机器共享、以及进程级别的性能隔离，实现了高利用率。它为高可用应用提供了可以减少故障恢复时间的运行时特性，以及降低关联故障概率的调度策略。Borg提供了声明式的作业描述语言、域名服务集成、实时作业监控、分析和模拟系统行为的工具。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yawujia.cn/2021/03/27/borg/borg.png">
+<meta property="article:published_time" content="2021-03-27T08:52:56.000Z">
+<meta property="article:modified_time" content="2021-03-27T09:49:00.437Z">
+<meta property="article:author" content="风之小云天">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yawujia.cn/2021/03/27/borg/borg.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://www.yawujia.cn/2021/03/27/borg/"/>
+
+
+
+
+
+  <title>Borg 论文笔记 | 风之小云天的博客</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">风之小云天的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">When your dreams come alive you're unstoppable</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.yawujia.cn/2021/03/27/borg/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="风之小云天">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/img/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="风之小云天的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Borg 论文笔记</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-03-27T16:52:56+08:00">
+                2021-03-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  951
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Borg-论文笔记"><a href="#Borg-论文笔记" class="headerlink" title="Borg 论文笔记"></a>Borg 论文笔记</h2><h3 id="Google的Borg系统是一个集群管理器。它在多个万台机器规模的集群上运行着来自几千个不同应用的几十万个作业。"><a href="#Google的Borg系统是一个集群管理器。它在多个万台机器规模的集群上运行着来自几千个不同应用的几十万个作业。" class="headerlink" title="Google的Borg系统是一个集群管理器。它在多个万台机器规模的集群上运行着来自几千个不同应用的几十万个作业。"></a>Google的Borg系统是一个集群管理器。它在多个万台机器规模的集群上运行着来自几千个不同应用的几十万个作业。</h3><p>Borg通过准入控制、高效的任务装箱、超售、机器共享、以及进程级别的性能隔离，实现了高利用率。它为高可用应用提供了可以减少故障恢复时间的运行时特性，以及降低关联故障概率的调度策略。Borg提供了声明式的作业描述语言、域名服务集成、实时作业监控、分析和模拟系统行为的工具。这些简化了用户的使用。<br>本文介绍了Borg系统架构和特性，重要的设计决策，对某些策略选择的定量分析，以及十年来的运营经验和教训。</p>
+<h4 id="Borg-集群管理系统负责接收、调度、启动、重启和监控Google所有应用。"><a href="#Borg-集群管理系统负责接收、调度、启动、重启和监控Google所有应用。" class="headerlink" title="Borg 集群管理系统负责接收、调度、启动、重启和监控Google所有应用。"></a>Borg 集群管理系统负责接收、调度、启动、重启和监控Google所有应用。</h4><p>Borg 提供三个主要好处</p>
+<ul>
+<li>隐藏资源管理和故障处理细节，使用户可以专注于应用开发</li>
+<li>高可靠和高可用运维，并支持应用程序也这样。</li>
+<li>让我们可以在几万台机器上高效运行负载。</li>
+</ul>
+<p><img src="/2021/03/27/borg/borg.png" alt></p>
+<a id="more"></a>
+<h2 id="Borg-的用户是google开发人员和站点可靠性工程师-SRE-用户以作业-Job-的方式将工作提交给Borg，作业由一个或多个任务-Task-组成，每个任务执行相同的二进制程序，每个作业只运行在一个Borg单元-Cell-里，是一组机器的管理单元。"><a href="#Borg-的用户是google开发人员和站点可靠性工程师-SRE-用户以作业-Job-的方式将工作提交给Borg，作业由一个或多个任务-Task-组成，每个任务执行相同的二进制程序，每个作业只运行在一个Borg单元-Cell-里，是一组机器的管理单元。" class="headerlink" title="Borg 的用户是google开发人员和站点可靠性工程师(SRE),用户以作业(Job)的方式将工作提交给Borg，作业由一个或多个任务(Task)组成，每个任务执行相同的二进制程序，每个作业只运行在一个Borg单元(Cell)里，是一组机器的管理单元。"></a>Borg 的用户是google开发人员和站点可靠性工程师(SRE),用户以作业(Job)的方式将工作提交给Borg，作业由一个或多个任务(Task)组成，每个任务执行相同的二进制程序，每个作业只运行在一个Borg单元(Cell)里，是一组机器的管理单元。</h2><p>SRE职责比系统管理员多很多: 他们负责 Google 生产服务的工程师，他们也设计和实现包括自动化系统等软件，管理应用，服务基础设施和平台，以保证在 Google 如此大规模下的高性能和高可靠性。</p>
+<h3 id="工作负载"><a href="#工作负载" class="headerlink" title="工作负载"></a>工作负载</h3><p>Borg Cell 主要运行2种异构的工作负载</p>
+<ol>
+<li>永不停止的长期运行的服务，处理持续时间较短但对延迟敏感的请求(从几毫秒到几百毫秒)，这些服务用于面对最终用户的产品，如Gmail、Google Docs、网页搜索，以及内部基础设施服务(例如Bigtable)</li>
+<li>批处理作业，执行时间从几秒到几天，对短期性能波动不敏感，这2种负载在不同Cell中比例不同，取决于其主要租户(例如，有些Cell以批处理作业为主)，工作负载也随着时间变化: 批处理作业不断提交或者技术，而很多面向终端用户的服务表现出昼夜周期性的使用模式，Borg 需要都处理好这些情况。<br>Borg 的代表性负载是一个公开的2011年5月正月的记录数据集【80】这个数据集已经得到了广泛的分析[1,26,27,57,68]<br>最近几年，以Borg为基础构建了很多应用框架，包括MapReduce系统、FlumeJava、Millwheel和Prege，这些框架大多有一个控制器来提交Master Job，还有多个Worker Jon，前两个框架类似于YARN的应用管理器，我们的分布式存储系统，例如GFS和它的后继者CFS、Bigtable、以及Megastore，都是运行在Borg上的。<br>我们把高优先级的 Borg 作业称为生产作业(prod),其他的则是非生产的(non-prod)，大多数长期服务是prod的，大部分批处理作业是non-prod的，一个典型cell里，prod作业分配了约70%的总CPU资源，占总CPU使用量约60%,分配了约55%的总内存资源，占总内存使用量约85%，5.5节表名分配量和使用量的差异是值得注意的。</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>Donate comment here</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/assets/img/alipay.jpg" alt="风之小云天 WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/assets/img/weixin.jpg" alt="风之小云天 Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    风之小云天
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="https://www.yawujia.cn/2021/03/27/borg/" title="Borg 论文笔记">https://www.yawujia.cn/2021/03/27/borg/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/12/dataq/" rel="next" title="阿里云 dataq学习笔记">
+                <i class="fa fa-chevron-left"></i> 阿里云 dataq学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/03/27/kubernetes-study/" rel="prev" title="kubernetes学习笔记">
+                kubernetes学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/assets/img/logo.jpg"
+                alt="风之小云天" />
+            
+              <p class="site-author-name" itemprop="name">风之小云天</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/minicloudsky" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:minicloudsky@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Borg-论文笔记"><span class="nav-number">1.</span> <span class="nav-text">Borg 论文笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Google的Borg系统是一个集群管理器。它在多个万台机器规模的集群上运行着来自几千个不同应用的几十万个作业。"><span class="nav-number">1.1.</span> <span class="nav-text">Google的Borg系统是一个集群管理器。它在多个万台机器规模的集群上运行着来自几千个不同应用的几十万个作业。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Borg-集群管理系统负责接收、调度、启动、重启和监控Google所有应用。"><span class="nav-number">1.1.1.</span> <span class="nav-text">Borg 集群管理系统负责接收、调度、启动、重启和监控Google所有应用。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Borg-的用户是google开发人员和站点可靠性工程师-SRE-用户以作业-Job-的方式将工作提交给Borg，作业由一个或多个任务-Task-组成，每个任务执行相同的二进制程序，每个作业只运行在一个Borg单元-Cell-里，是一组机器的管理单元。"><span class="nav-number">2.</span> <span class="nav-text">Borg 的用户是google开发人员和站点可靠性工程师(SRE),用户以作业(Job)的方式将工作提交给Borg，作业由一个或多个任务(Task)组成，每个任务执行相同的二进制程序，每个作业只运行在一个Borg单元(Cell)里，是一组机器的管理单元。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工作负载"><span class="nav-number">2.1.</span> <span class="nav-text">工作负载</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span class="author" itemprop="copyrightHolder">风之小云天</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">45.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>总访客
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

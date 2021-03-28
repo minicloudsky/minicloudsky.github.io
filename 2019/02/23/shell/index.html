@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="没时间写，留个坑后面抽时间补上。。">
+<meta name="description" content="记录下常用的 shell 命令 pwd 打印工作目录 ls 列出目录下文件ls -a 列出全部文件，包含隐藏文件ls -l  长数据串列出，包含文件的属性与权限 cd 切换目录cd 绝对路径    切换路径cd 相对路径    切换路径cd ~或者cd    回到自己的家目录cd -    回到上一次所在目录cd ..    回到当前目录的上一级目录cd -P    跳转到实际物理路径，而非快捷方">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2020年终总结">
-<meta property="og:url" content="https://www.yawujia.cn/2020/12/31/end-to-2020/index.html">
+<meta property="og:title" content="linux shell 学习">
+<meta property="og:url" content="https://www.yawujia.cn/2019/02/23/shell/index.html">
 <meta property="og:site_name" content="风之小云天的博客">
-<meta property="og:description" content="没时间写，留个坑后面抽时间补上。。">
+<meta property="og:description" content="记录下常用的 shell 命令 pwd 打印工作目录 ls 列出目录下文件ls -a 列出全部文件，包含隐藏文件ls -l  长数据串列出，包含文件的属性与权限 cd 切换目录cd 绝对路径    切换路径cd 相对路径    切换路径cd ~或者cd    回到自己的家目录cd -    回到上一次所在目录cd ..    回到当前目录的上一级目录cd -P    跳转到实际物理路径，而非快捷方">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-31T02:10:31.000Z">
-<meta property="article:modified_time" content="2021-01-13T03:34:30.646Z">
+<meta property="article:published_time" content="2019-02-23T08:32:18.000Z">
+<meta property="article:modified_time" content="2021-02-23T09:42:04.721Z">
 <meta property="article:author" content="风之小云天">
 <meta name="twitter:card" content="summary">
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="https://www.yawujia.cn/2020/12/31/end-to-2020/"/>
+  <link rel="canonical" href="https://www.yawujia.cn/2019/02/23/shell/"/>
 
 
 
 
 
-  <title>2020年终总结 | 风之小云天的博客</title>
+  <title>linux shell 学习 | 风之小云天的博客</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.yawujia.cn/2020/12/31/end-to-2020/">
+    <link itemprop="mainEntityOfPage" href="https://www.yawujia.cn/2019/02/23/shell/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="风之小云天">
@@ -279,7 +279,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">2020年终总结</h2>
+          <h2 class="post-title" itemprop="name headline">linux shell 学习</h2>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-12-31T10:10:31+08:00">
-                2020-12-31
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-23T16:32:18+08:00">
+                2019-02-23
               </time>
             
 
@@ -328,7 +328,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  14
+                  1.5k
                 </span>
               
 
@@ -353,8 +353,86 @@
       
 
       
-        <h2 id="没时间写，留个坑后面抽时间补上。。"><a href="#没时间写，留个坑后面抽时间补上。。" class="headerlink" title="没时间写，留个坑后面抽时间补上。。"></a>没时间写，留个坑后面抽时间补上。。</h2><a id="more"></a>
-
+        <h2 id="记录下常用的-shell-命令"><a href="#记录下常用的-shell-命令" class="headerlink" title="记录下常用的 shell 命令"></a>记录下常用的 shell 命令</h2><ul>
+<li>pwd 打印工作目录</li>
+<li>ls 列出目录下文件<br>ls -a 列出全部文件，包含隐藏文件<br>ls -l  长数据串列出，包含文件的属性与权限</li>
+<li>cd 切换目录<br>cd 绝对路径    切换路径<br>cd 相对路径    切换路径<br>cd ~或者cd    回到自己的家目录<br>cd -    回到上一次所在目录<br>cd ..    回到当前目录的上一级目录<br>cd -P    跳转到实际物理路径，而非快捷方式路径</li>
+<li>mkdir 创建目录<br>mkdir -p dir 创建多层目录</li>
+<li>rmdir 删除目录</li>
+<li>touch 创建空文件</li>
+<li>cp 复制文件或目录<br>cp source target<br>cp -r 递归复制整个目录或文件<br>\cp  强制覆盖不提示</li>
+<li>rm 移除文件或目录<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-r	递归删除目录中所有内容</span><br><span class="line">-f	强制执行删除操作，而不提示用于进行确认。</span><br><span class="line">-v	显示指令的详细执行过程</span><br></pre></td></tr></table></figure></li>
+<li>mv 移动文件与目录或重命名<ol>
+<li>mv oldNameFile newNameFile    （功能描述：重命名）</li>
+<li>mv /temp/movefile /targetFolder    （功能描述：移动文件）</li>
+</ol>
+</li>
+<li>cat 查看文件内容<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat filename</span><br><span class="line">cat -n 显示所有行的行号，包括空行</span><br></pre></td></tr></table></figure></li>
+<li>more指令是一个基于VI编辑器的文本过滤器，它以全屏幕的方式按页显示文本文件的内容。more指令中内置了若干快捷键，详见操作说明。</li>
+</ul>
+<ol>
+<li>基本语法：<br> more 要查看的文件</li>
+<li>操作说明<br>| 操作    |功能说明|<br>|空白键 (space)|    代表向下翻一页；|<br>|Enter    |代表向下翻『一行』；|<br>|q    |代表立刻离开 more ，不再显示该文件内容。|<br>|Ctrl+f|    向下滚动一屏|<br>|Ctrl+b    |返回上一屏|<br>|=|    输出当前行的行号|<br>|:f    |输出文件名和当前行的行号|<a id="more"></a></li>
+</ol>
+<ul>
+<li><p>less指令用来分屏查看文件内容，它的功能与more指令类似，但是比more指令更加强大，支持各种显示终端。less指令在显示文件内容时，并不是一次将整个文件加载之后才显示，而是根据显示需要加载内容，对于显示大型文件具有较高的效率。<br>1）基本语法：<br>  less 要查看的文件<br>2）操作说明<br>操作    功能说明<br>空白键    向下翻动一页；<br>[pagedown]    向下翻动一页<br>[pageup]    向上翻动一页；<br>/字串    向下搜寻『字串』的功能；n：向下查找；N：向上查找；<br>?字串    向上搜寻『字串』的功能；n：向上查找；N：向下查找；<br>q      离开 less 这个程序；</p>
+</li>
+<li><p>echo输出内容到控制台<br>基本语法：</p>
+<pre><code>echo [选项] [输出内容]</code></pre><p>选项：<br>-e：  支持反斜线控制的字符转换<br>|控制字符 |     作用 |<br>|\  |    输出\本身|<br>|\n  |    换行符|<br>|\t  |    制表符，也就是Tab键|</p>
+</li>
+<li><p>head用于显示文件的开头部分内容，默认情况下head指令显示文件的前10行内容。<br>head 文件          （功能描述：查看文件头10行内容）<br>head -n 5 文件      （功能描述：查看文件头5行内容，5可以是任意行数）</p>
+</li>
+<li><p>n&lt;行数&gt;    指定显示头部内容的行数</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@aliyun ~]# head -10 defer.go </span><br><span class="line">package main</span><br><span class="line"></span><br><span class="line">import "fmt"</span><br><span class="line"></span><br><span class="line">func main()&#123;</span><br><span class="line">  //  for i:=0;i&lt;5;i++&#123;</span><br><span class="line">//        defer fmt.Printf("%d ",i)</span><br><span class="line">   // &#125;</span><br><span class="line">    // fmt.Println("\n")</span><br><span class="line">    //x:= []int&#123;1,2,3&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>tail用于输出文件中尾部的内容，默认情况下tail指令显示文件的后10行内容。</li>
+</ul>
+<p>1.基本语法tail</p>
+<ol>
+<li>tail  文件             （功能描述：查看文件头10行内容）</li>
+<li>tail  -n 5 文件         （功能描述：查看文件头5行内容，5可以是任意行数）</li>
+<li>tail  -f  文件        （功能描述：实时追踪该文档的所有更新）<ol start="2">
+<li>选项说明<br>选项    功能</li>
+</ol>
+-n&lt;行数&gt;    输出文件尾部n行内容<br>-f    显示文件最新追加的内容，监视文件变化<br>实时追踪该档的所有更新<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@aliyun ~]# tail -f a.txt</span><br><span class="line">date~123</span><br></pre></td></tr></table></figure>
+<ul>
+<li>输出重定向和 &gt;&gt; 追加<br>1）基本语法：ll<br>（1）ls -l &gt;文件        （功能描述：列表的内容写入文件a.txt中（覆盖写））<br>（2）ls -al &gt;&gt;文件        （功能描述：列表的内容追加到文件aa.txt的末尾）<br>（3）cat 文件1 &gt; 文件2    （功能描述：将文件1的内容覆盖到文件2）<br>（4）echo “内容” &gt;&gt; 文件</li>
+<li>软链接也称为符号链接，类似于windows里的快捷方式，有自己的数据块，主要存放了链接其他文件的路径。<br>1）基本语法：<br>ln -s [原文件或目录] [软链接名]        （功能描述：给原文件创建一个软链接）<br>2）经验技巧<br>删除软链接： rm -rf 软链接名，而不是rm -rf 软链接名/<br>查询：通过ll就可以查看，列表属性第1位是l，尾部会有位置指向</li>
+<li>history 查看已经执行过历史命令</li>
+<li>date 显示当前时间</li>
+</ul>
+1.基本语法：<ul>
+<li>date                                （功能描述：显示当前时间）</li>
+<li>date +%Y                            （功能描述：显示当前年份）</li>
+<li>date +%m                            （功能描述：显示当前月份）</li>
+<li>date +%d                            （功能描述：显示当前是哪一天）</li>
+<li>date “+%Y-%m-%d %H:%M:%S”        （功能描述：显示年月日时分秒）</li>
+<li>date -d ‘1 days ago’            （功能描述：显示前一天时间）</li>
+<li>date -d ‘-1 days ago’            （功能描述：显示明天时间）</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>date 设置系统时间</li>
+</ul>
+<ol>
+<li><p>基本语法：<br> date -s 字符串时间</p>
+</li>
+<li><p>设置系统当前时间</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@aliyun ~]# date -s "2017-06-19 20:52:18"</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>cal 查看日历</li>
+<li>useradd 添加新用户<br>useradd 用户名            （功能描述：添加新用户）<br>useradd -g 组名 用户名    （功能描述：添加新用户到某个组）</li>
+<li>passwd 设置用户密码<br>passwd 用户名    （功能描述：设置用户密码）</li>
+<li>id 查看用户是否存在<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@aliyun ~]# id root</span><br><span class="line">uid=0(root) gid=0(root) groups=0(root)</span><br></pre></td></tr></table></figure></li>
+<li>cat  /etc/passwd 查看创建了哪些用户<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[tools@uatgw01 ~]$ cat /etc/passwd</span><br><span class="line">root:x:0:0:root:/root:/bin/bash</span><br><span class="line">bin:x:1:1:bin:/bin:/sbin/nologin</span><br><span class="line">daemon:x:2:2:daemon:/sbin:/sbin/nologin</span><br><span class="line">adm:x:3:4:adm:/var/adm:/sbin/nologin</span><br></pre></td></tr></table></figure></li>
+<li>su username 切换用户</li>
+<li>userdel 删除用户<br>userdel -r 删除用户和用户目录</li>
+<li>whoami 查看当前登录用户名</li>
+</ul>
 
       
     </div>
@@ -404,7 +482,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>Post link:</strong>
-    <a href="https://www.yawujia.cn/2020/12/31/end-to-2020/" title="2020年终总结">https://www.yawujia.cn/2020/12/31/end-to-2020/</a>
+    <a href="https://www.yawujia.cn/2019/02/23/shell/" title="linux shell 学习">https://www.yawujia.cn/2019/02/23/shell/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice: </strong>
@@ -426,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/12/17/collecting-hive-metadata/" rel="next" title="元数据采集 - hive 元数据采集">
-                <i class="fa fa-chevron-left"></i> 元数据采集 - hive 元数据采集
+              <a href="/2018/05/27/too-young-tofelt-price/" rel="next" title="她那时候还太年轻，不知道所有命运赠送的礼物，早已在暗中标好了价格。">
+                <i class="fa fa-chevron-left"></i> 她那时候还太年轻，不知道所有命运赠送的礼物，早已在暗中标好了价格。
               </a>
             
           </div>
@@ -436,8 +514,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2021/01/13/awk/" rel="prev" title="linux awk 教程">
-                linux awk 教程 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/15/docker-study/" rel="prev" title="docker学习笔记">
+                docker学习笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -519,7 +597,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -590,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#没时间写，留个坑后面抽时间补上。。"><span class="nav-number">1.</span> <span class="nav-text">没时间写，留个坑后面抽时间补上。。</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#记录下常用的-shell-命令"><span class="nav-number">1.</span> <span class="nav-text">记录下常用的 shell 命令</span></a></li></ol></div>
             
 
           </div>
@@ -632,7 +710,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">41.9k</span>
+    <span title="Site words total count">45.1k</span>
   
 </div>
 

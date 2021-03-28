@@ -261,6 +261,298 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.yawujia.cn/2020/09/05/mysql-master-slave/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="风之小云天">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/img/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="风之小云天的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/09/05/mysql-master-slave/" itemprop="url">mysql 主从复制实践</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-09-05T16:41:41+08:00">
+                2020-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2.4k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="mysql是常见的关系型数据库，为了方便把一个mysql数据源的数据复制到其他mysql-host，复制特性就是为了解决这个问题的，slave-mysql-服务器通过读取master-的binlog进行复制，写入slave-mysql-服务器。"><a href="#mysql是常见的关系型数据库，为了方便把一个mysql数据源的数据复制到其他mysql-host，复制特性就是为了解决这个问题的，slave-mysql-服务器通过读取master-的binlog进行复制，写入slave-mysql-服务器。" class="headerlink" title="mysql是常见的关系型数据库，为了方便把一个mysql数据源的数据复制到其他mysql host，复制特性就是为了解决这个问题的，slave mysql 服务器通过读取master 的binlog进行复制，写入slave mysql 服务器。"></a>mysql是常见的关系型数据库，为了方便把一个mysql数据源的数据复制到其他mysql host，复制特性就是为了解决这个问题的，slave mysql 服务器通过读取master 的binlog进行复制，写入slave mysql 服务器。</h3><h3 id="参考mysql官网-replication"><a href="#参考mysql官网-replication" class="headerlink" title="参考mysql官网 replication"></a><a href="https://dev.mysql.com/doc/refman/8.0/en/replication.html" target="_blank" rel="noopener">参考mysql官网 replication</a></h3><ol>
+<li>因为贫民窟少女只有两台服务器的原因，这里使用 docker 开启三个容器，一个master，两个slave，进行主从复制测试</li>
+<li>首先拉取 mysql 容器，这里 mysql 最新的版本为8.0.21<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@huawei ~]<span class="comment"># docker pull mysql</span></span><br></pre></td></tr></table></figure>
+<img src="/2020/09/05/mysql-master-slave/1.png" alt></li>
+<li>在服务器上创建docker 文件目录与服务器本地文件目录的映射，稍后将mysql容器的文件映射到这个目录(这里是博主个人习惯喽，因为主要是为了防止容器丢失早晨数据丢失，把容器内的数据映射到服务器外面，这样就算服务器故障，下次把mysql容器重新挂载到这个mysql服务器上的目录就好了~)</li>
+<li>创建三个mysql目录<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@huawei container]<span class="comment"># pwd</span></span><br><span class="line">/home/container</span><br><span class="line">[root@huawei container]<span class="comment"># ll</span></span><br><span class="line">total 12</span><br><span class="line">drwxr-xr-x 6 root root 4096 Sep  4 23:47 mysql_master</span><br><span class="line">drwxr-xr-x 6 root root 4096 Sep  5 16:35 mysql_slave</span><br><span class="line">drwxr-xr-x 6 root root 4096 Sep  5 16:27 mysql_slave2</span><br></pre></td></tr></table></figure></li>
+<li>在每个 mysql 目录中创建 data、conf、log、mysql-files 三个目录</li></ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/09/05/mysql-master-slave/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.yawujia.cn/2020/08/26/dapper-note/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="风之小云天">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/assets/img/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="风之小云天的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/08/26/dapper-note/" itemprop="url">dapper 分布式追踪系统论文笔记</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-08-26T11:35:09+08:00">
+                2020-08-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  24
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Dapper-是-Google-开发的分布式追踪系统，这里记录下-Dapper-论文的学习。"><a href="#Dapper-是-Google-开发的分布式追踪系统，这里记录下-Dapper-论文的学习。" class="headerlink" title="Dapper 是 Google 开发的分布式追踪系统，这里记录下 Dapper 论文的学习。"></a>Dapper 是 Google 开发的分布式追踪系统，这里记录下 Dapper 论文的学习。</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/08/26/dapper-note/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://www.yawujia.cn/2020/08/14/devops/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1395,7 +1687,7 @@ create 创建节点
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.yawujia.cn/2019/05/15/may-june-interview/">
+    <link itemprop="mainEntityOfPage" href="https://www.yawujia.cn/2019/02/23/shell/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="风之小云天">
@@ -1414,7 +1706,7 @@ create 创建节点
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/15/may-june-interview/" itemprop="url">毕业找工作</a></h2>
+                <a class="post-title-link" href="/2019/02/23/shell/" itemprop="url">linux shell 学习</a></h2>
         
 
         <div class="post-meta">
@@ -1426,8 +1718,8 @@ create 创建节点
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T08:33:42+08:00">
-                2019-05-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-23T16:32:18+08:00">
+                2019-02-23
               </time>
             
 
@@ -1436,28 +1728,6 @@ create 创建节点
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -1480,7 +1750,7 @@ create 创建节点
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.7k
+                  1.5k
                 </span>
               
 
@@ -1506,359 +1776,29 @@ create 创建节点
 
       
         
-          <blockquote>
-<p>黄色的林子里有两条路，<br>很遗憾我无法同时选择两者<br>身在旅途的我久久站立<br>对着其中一条极目眺望<br>直到它蜿蜒拐进远处的树丛。<br>我选择了另外的一条，天经地义，<br>也许更为诱人<br>因为它充满荆棘，需要开拓；<br>然而这样的路过<br>并未引起太大的改变。<br>那天清晨这两条小路一起静卧在<br>无人踩过的树叶丛中<br>哦，我把另一条路留给了明天！<br>明知路连着路，<br>我不知是否该回头。<br>我将轻轻叹息，叙述这一切<br>许多许多年以后：<br>林子里有两条路，我——<br>选择了行人稀少的那一条<br>它改变了我的一生。</p>
-</blockquote>
+          <h2 id="记录下常用的-shell-命令"><a href="#记录下常用的-shell-命令" class="headerlink" title="记录下常用的 shell 命令"></a>记录下常用的 shell 命令</h2><ul>
+<li>pwd 打印工作目录</li>
+<li>ls 列出目录下文件<br>ls -a 列出全部文件，包含隐藏文件<br>ls -l  长数据串列出，包含文件的属性与权限</li>
+<li>cd 切换目录<br>cd 绝对路径    切换路径<br>cd 相对路径    切换路径<br>cd ~或者cd    回到自己的家目录<br>cd -    回到上一次所在目录<br>cd ..    回到当前目录的上一级目录<br>cd -P    跳转到实际物理路径，而非快捷方式路径</li>
+<li>mkdir 创建目录<br>mkdir -p dir 创建多层目录</li>
+<li>rmdir 删除目录</li>
+<li>touch 创建空文件</li>
+<li>cp 复制文件或目录<br>cp source target<br>cp -r 递归复制整个目录或文件<br>\cp  强制覆盖不提示</li>
+<li>rm 移除文件或目录<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-r	递归删除目录中所有内容</span><br><span class="line">-f	强制执行删除操作，而不提示用于进行确认。</span><br><span class="line">-v	显示指令的详细执行过程</span><br></pre></td></tr></table></figure></li>
+<li>mv 移动文件与目录或重命名<ol>
+<li>mv oldNameFile newNameFile    （功能描述：重命名）</li>
+<li>mv /temp/movefile /targetFolder    （功能描述：移动文件）</li>
+</ol>
+</li>
+<li>cat 查看文件内容<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat filename</span><br><span class="line">cat -n 显示所有行的行号，包括空行</span><br></pre></td></tr></table></figure></li>
+<li>more指令是一个基于VI编辑器的文本过滤器，它以全屏幕的方式按页显示文本文件的内容。more指令中内置了若干快捷键，详见操作说明。</li>
+</ul>
+<ol>
+<li>基本语法：<br> more 要查看的文件</li>
+<li>操作说明<br>| 操作    |功能说明|<br>|空白键 (space)|    代表向下翻一页；|<br>|Enter    |代表向下翻『一行』；|<br>|q    |代表立刻离开 more ，不再显示该文件内容。|<br>|Ctrl+f|    向下滚动一屏|<br>|Ctrl+b    |返回上一屏|<br>|=|    输出当前行的行号|<br>|:f    |输出文件名和当前行的行号|</li></ol>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2019/05/15/may-june-interview/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.yawujia.cn/2018/05/27/too-young-tofelt-price/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="风之小云天">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/assets/img/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="风之小云天的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/27/too-young-tofelt-price/" itemprop="url">她那时候还太年轻，不知道所有命运赠送的礼物，早已在暗中标好了价格。</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-27T18:05:14+08:00">
-                2018-05-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E4%BA%BA%E7%94%9F/" itemprop="url" rel="index">
-                    <span itemprop="name">人生</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  5.9k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          你是如何理解「她那时候还太年轻，不知道所有命运赠送的礼物，早已在暗中标好了价格」的？
-
-太年轻”是关键，年轻，很多事不会考虑后果，肆意妄为，以为世界都是自己的，很多人抱怨自己年轻人不懂事什么的，何谓懂事？无非是现实给予我们教训好让我们认清自己，只是这教训有时候特别沉重，你连重来的机会都没有了。
-
-在
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/27/too-young-tofelt-price/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.yawujia.cn/2017/12/12/zhouyi-qiangua/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="风之小云天">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/assets/img/logo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="风之小云天的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/12/zhouyi-qiangua/" itemprop="url">周易-乾卦</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-12T16:39:55+08:00">
-                2017-12-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%94%9F%E6%B4%BB/%E5%BF%83%E6%83%85/" itemprop="url" rel="index">
-                    <span itemprop="name">心情</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  8.5k
-                </span>
-              
-
-              
-
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>乾卦是《易经》六十四卦中的第一卦，代进取、创造的力量。乾卦六爻皆阳，好似六条巨龙，代表着天地万物变化的规律；代表着人生、或人的事业发展的六个阶段，即潜、现、惕、跃、飞，亢。乾最大的美德是刚健、自强不息。<br>《周易》上说，乾：元，亨，利，贞。乾卦广大、亨通、吉利、纯正，四德具备，因而卜得此卦大吉大利，和谐坚实。乾卦由天道而至人道，读懂了乾卦就读懂了人生，也就读懂了做人做事的大智慧。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/12/12/zhouyi-qiangua/#more" rel="contents">
+            <a class="btn" href="/2019/02/23/shell/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1950,7 +1890,7 @@ create 创建节点
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2047,7 +1987,7 @@ create 创建节点
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">41.9k</span>
+    <span title="Site words total count">45.1k</span>
   
 </div>
 
