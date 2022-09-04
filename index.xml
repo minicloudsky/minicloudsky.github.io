@@ -13,7 +13,7 @@
       <pubDate>Sun, 20 Aug 2017 21:38:52 +0800</pubDate>
       
       <guid>http://minicloudsky.github.io/about/</guid>
-      <description>A programmer from China,Shanghai.</description>
+      <description>A programmer from Shanghai,China.</description>
     </item>
     
     <item>
@@ -77,15 +77,6 @@
       
       <guid>http://minicloudsky.github.io/blog/2021/01/13/linux-awk-%E6%95%99%E7%A8%8B/</guid>
       <description>用以下信息做示例 $ cat netstat.txt Proto Recv-Q Send-Q Local-Address Foreign-Address State tcp 0 0 0.0.0.0:3306 0.0.0.0:* LISTEN tcp 0 0 0.0.0.0:80 0.0.0.0:* LISTEN tcp 0 0 127.0.0.1:9000 0.0.0.0:* LISTEN tcp 0 0 coolshell.cn:80 124.205.5.146:18245 TIME_WAIT tcp 0 0 coolshell.cn:80 61.140.101.185:37538 FIN_WAIT2 tcp 0 0 coolshell.cn:80 110.194.134.189:1032 ESTABLISHED tcp 0 0 coolshell.cn:80 123.169.124.111:49809 ESTABLISHED tcp 0 0 coolshell.cn:80 116.234.127.77:11502 FIN_WAIT2 tcp 0 0 coolshell.cn:80 123.169.124.111:49829</description>
-    </item>
-    
-    <item>
-      <title>元数据采集 - hive 元数据采集</title>
-      <link>http://minicloudsky.github.io/blog/2020/12/17/%E5%85%83%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86-hive-%E5%85%83%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/</link>
-      <pubDate>Thu, 17 Dec 2020 18:06:41 +0000</pubDate>
-      
-      <guid>http://minicloudsky.github.io/blog/2020/12/17/%E5%85%83%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86-hive-%E5%85%83%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86/</guid>
-      <description>这里是正文</description>
     </item>
     
     <item>
@@ -179,12 +170,21 @@
     </item>
     
     <item>
-      <title>消息推送简介</title>
-      <link>http://minicloudsky.github.io/blog/2019/10/07/%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81%E7%AE%80%E4%BB%8B/</link>
-      <pubDate>Mon, 07 Oct 2019 09:49:28 +0000</pubDate>
+      <title>docker学习笔记</title>
+      <link>http://minicloudsky.github.io/blog/2019/05/15/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</link>
+      <pubDate>Wed, 15 May 2019 08:33:42 +0000</pubDate>
       
-      <guid>http://minicloudsky.github.io/blog/2019/10/07/%E6%B6%88%E6%81%AF%E6%8E%A8%E9%80%81%E7%AE%80%E4%BB%8B/</guid>
-      <description>​ 在互联网业务中，有很多场景，都需要向用户推送消息，例如，一个论坛系统中，当用户发帖后，其他用户进行回复，需要对发帖者进行消息通知，在电商业</description>
+      <guid>http://minicloudsky.github.io/blog/2019/05/15/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
+      <description>什么是docker docker包括一个命令行程序、一个后台守护进程、以及一组远程服务。它解决了常见的软件问题，并建华路安装、运行、发布和删除</description>
+    </item>
+    
+    <item>
+      <title>linux shell 学习</title>
+      <link>http://minicloudsky.github.io/blog/2019/02/23/linux-shell-%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Sat, 23 Feb 2019 16:32:18 +0000</pubDate>
+      
+      <guid>http://minicloudsky.github.io/blog/2019/02/23/linux-shell-%E5%AD%A6%E4%B9%A0/</guid>
+      <description>记录下常用的 shell 命令 pwd 打印工作目录 ls 列出目录下文件 ls -a 列出全部文件，包含隐藏文件 ls -l 长数据串列出，包含文件的属性与权限 cd 切换目录 cd 绝对路径 切换</description>
     </item>
     
   </channel>
