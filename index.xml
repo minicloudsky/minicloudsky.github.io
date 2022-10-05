@@ -6,7 +6,7 @@
     <description>Recent content on Minicloudsky&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Jun 2021 19:23:09 +0000</lastBuildDate><atom:link href="http://minicloudsky.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Oct 2022 00:35:12 +0000</lastBuildDate><atom:link href="http://minicloudsky.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
       <link>http://minicloudsky.github.io/about/</link>
@@ -14,6 +14,15 @@
       
       <guid>http://minicloudsky.github.io/about/</guid>
       <description>A programmer from Shanghai,China.</description>
+    </item>
+    
+    <item>
+      <title>kkndme</title>
+      <link>http://minicloudsky.github.io/blog/2022/10/04/kkndme/</link>
+      <pubDate>Tue, 04 Oct 2022 00:35:12 +0000</pubDate>
+      
+      <guid>http://minicloudsky.github.io/blog/2022/10/04/kkndme/</guid>
+      <description>kkndme_tianya（持续更新中&amp;hellip;） 天涯神贴「2010年的房地产调控，我们收获了什么？写在房价暴涨前」脱水版，内容时间顺</description>
     </item>
     
     <item>
@@ -176,15 +185,6 @@
       
       <guid>http://minicloudsky.github.io/blog/2019/05/15/docker%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</guid>
       <description>什么是docker docker包括一个命令行程序、一个后台守护进程、以及一组远程服务。它解决了常见的软件问题，并建华路安装、运行、发布和删除</description>
-    </item>
-    
-    <item>
-      <title>linux shell 学习</title>
-      <link>http://minicloudsky.github.io/blog/2019/02/23/linux-shell-%E5%AD%A6%E4%B9%A0/</link>
-      <pubDate>Sat, 23 Feb 2019 16:32:18 +0000</pubDate>
-      
-      <guid>http://minicloudsky.github.io/blog/2019/02/23/linux-shell-%E5%AD%A6%E4%B9%A0/</guid>
-      <description>记录下常用的 shell 命令 pwd 打印工作目录 ls 列出目录下文件 ls -a 列出全部文件，包含隐藏文件 ls -l 长数据串列出，包含文件的属性与权限 cd 切换目录 cd 绝对路径 切换</description>
     </item>
     
   </channel>
