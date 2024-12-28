@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cicd on Minicloudsky&#39;s blog</title>
+    <link>https://minicloudsky.cn/tags/cicd/</link>
+    <description>Recent content in Cicd on Minicloudsky&#39;s blog</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 09 Mar 2024 22:01:35 +0000</lastBuildDate>
+    <atom:link href="https://minicloudsky.cn/tags/cicd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://minicloudsky.cn/blog/2024/03/09/</link>
+      <pubDate>Sat, 09 Mar 2024 22:01:35 +0000</pubDate>
+      <guid>https://minicloudsky.cn/blog/2024/03/09/</guid>
+      <description>&lt;p&gt;在 DevOps 领域中，我们通常需要实现cicd，持续地支撑业务团队软件交付，在云原生时代，cicd通常是如何实现的呢？&lt;/p&gt;&#xA;&lt;h3 id=&#34;ci持续集成&#34;&gt;CI（持续集成）&lt;/h3&gt;&#xA;&lt;p&gt;在云原生时代，持续集成包括对源代码的质量检查，代码扫描，安全漏洞治理等，然后通过镜像构建，交付出一个 应用的制品包，即docker 镜像。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

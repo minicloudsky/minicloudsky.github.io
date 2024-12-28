@@ -4,12 +4,19 @@
     <title>Categories on Minicloudsky&#39;s blog</title>
     <link>https://minicloudsky.cn/categories/</link>
     <description>Recent content in Categories on Minicloudsky&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 14 May 2023 21:35:12 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 09 Mar 2024 22:01:35 +0000</lastBuildDate>
     <atom:link href="https://minicloudsky.cn/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>k8s</title>
+      <title>Cicd</title>
+      <link>https://minicloudsky.cn/categories/cicd/</link>
+      <pubDate>Sat, 09 Mar 2024 22:01:35 +0000</pubDate>
+      <guid>https://minicloudsky.cn/categories/cicd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>K8s</title>
       <link>https://minicloudsky.cn/categories/k8s/</link>
       <pubDate>Sun, 14 May 2023 21:35:12 +0000</pubDate>
       <guid>https://minicloudsky.cn/categories/k8s/</guid>
@@ -23,7 +30,7 @@
       <description></description>
     </item>
     <item>
-      <title>devops</title>
+      <title>Devops</title>
       <link>https://minicloudsky.cn/categories/devops/</link>
       <pubDate>Fri, 14 Aug 2020 14:33:42 +0000</pubDate>
       <guid>https://minicloudsky.cn/categories/devops/</guid>
@@ -44,7 +51,7 @@
       <description></description>
     </item>
     <item>
-      <title>docker</title>
+      <title>Docker</title>
       <link>https://minicloudsky.cn/categories/docker/</link>
       <pubDate>Wed, 15 May 2019 08:33:42 +0000</pubDate>
       <guid>https://minicloudsky.cn/categories/docker/</guid>
@@ -72,7 +79,7 @@
       <description></description>
     </item>
     <item>
-      <title>git</title>
+      <title>Git</title>
       <link>https://minicloudsky.cn/categories/git/</link>
       <pubDate>Wed, 11 Oct 2017 14:53:21 +0000</pubDate>
       <guid>https://minicloudsky.cn/categories/git/</guid>
@@ -93,7 +100,7 @@
       <description></description>
     </item>
     <item>
-      <title>hexo</title>
+      <title>Hexo</title>
       <link>https://minicloudsky.cn/categories/hexo/</link>
       <pubDate>Sun, 12 Mar 2017 21:42:19 +0000</pubDate>
       <guid>https://minicloudsky.cn/categories/hexo/</guid>

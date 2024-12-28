@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>git on Minicloudsky&#39;s blog</title>
+    <title>Git on Minicloudsky&#39;s blog</title>
     <link>https://minicloudsky.cn/categories/git/</link>
-    <description>Recent content in git on Minicloudsky&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Git on Minicloudsky&#39;s blog</description>
+    <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 11 Oct 2017 14:53:21 +0000</lastBuildDate>
     <atom:link href="https://minicloudsky.cn/categories/git/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,7 @@
       <link>https://minicloudsky.cn/blog/2017/10/11/github-%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
       <pubDate>Wed, 11 Oct 2017 14:53:21 +0000</pubDate>
       <guid>https://minicloudsky.cn/blog/2017/10/11/github-%E5%AD%A6%E4%B9%A0%E4%B8%8E%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
-      <description>github以前用来搭建过博客，但是不会用git仓库，最近抽时间跳坑，把常见问题总结了下。 配置 Github 首先注册、登录 (github)[https://github.com/] 记住自己的 Username（</description>
+      <description>&lt;p&gt;github以前用来搭建过博客，但是不会用git仓库，最近抽时间跳坑，把常见问题总结了下。&lt;/p&gt;&#xA;&lt;h3 id=&#34;配置-github&#34;&gt;配置 Github&lt;/h3&gt;&#xA;&lt;p&gt;首先注册、登录 (github)[https://github.com/]&#xA;记住自己的 Username（很重要）&#xA;然后右上角选择 Create a new repository &lt;a href=&#34;https://github.com/new&#34;&gt;https://github.com/new&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
