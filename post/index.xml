@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Minicloudsky&#39;s blog</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 09 Mar 2024 22:01:35 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 28 Dec 2024 20:53:21 +0000</lastBuildDate>
     <atom:link href="https://minicloudsky.cn/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>深入解析Golang异常机制：Panic 与 Recover 的原理与最佳实践</title>
+      <link>https://minicloudsky.cn/blog/2024/12/28/%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90golang%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6panic-%E4%B8%8E-recover-%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Sat, 28 Dec 2024 20:53:21 +0000</pubDate>
+      <guid>https://minicloudsky.cn/blog/2024/12/28/%E6%B7%B1%E5%85%A5%E8%A7%A3%E6%9E%90golang%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6panic-%E4%B8%8E-recover-%E7%9A%84%E5%8E%9F%E7%90%86%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid>
+      <description>&lt;h1 id=&#34;一前言&#34;&gt;一、前言&lt;/h1&gt;&#xA;&lt;p&gt;在 Go 中，&lt;code&gt;panic&lt;/code&gt; 是一种用于处理异常的机制。&lt;code&gt;panic&lt;/code&gt; 能够改变程序的控制流，调用 &lt;code&gt;panic&lt;/code&gt; 后会立刻停止执行当前函数的剩余代码，并在当前 Goroutine 中递归执行调用方的 &lt;code&gt;defer&lt;/code&gt;；当程序遇到不可恢复的错误或异常状态时，可以通过调用 &lt;code&gt;panic&lt;/code&gt; 来中止当前函数的执行，触发递归的函数栈退出，最终程序崩溃并打印错误信息。&lt;/p&gt;</description>
+    </item>
     <item>
       <title></title>
       <link>https://minicloudsky.cn/blog/2024/03/09/</link>
@@ -140,13 +147,6 @@
       <pubDate>Mon, 01 Jun 2020 15:59:14 +0000</pubDate>
       <guid>https://minicloudsky.cn/blog/2020/06/01/hbase-%E5%9F%BA%E7%A1%80/</guid>
       <description>&lt;h2 id=&#34;hbase-是一个基于列存储的数据库底层存储可以用hdfs也可以用本地文件系统这里记录下常用操作&#34;&gt;hbase 是一个基于列存储的数据库，底层存储可以用hdfs，也可以用本地文件系统，这里记录下常用操作。&lt;/h2&gt;&#xA;&lt;h3 id=&#34;数据模型&#34;&gt;数据模型&lt;/h3&gt;&#xA;&lt;p&gt;在 HBase 中，数据存储在由行列构成的二维表中，这是与一个关系数据库(RDBMS)重叠的术语，但这不是一个有帮助的比喻，相反，将hbase 表视为多表映射会很有帮助。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Linux中swap与memory介绍</title>
-      <link>https://minicloudsky.cn/blog/2020/02/09/linux%E4%B8%ADswap%E4%B8%8Ememory%E4%BB%8B%E7%BB%8D/</link>
-      <pubDate>Sun, 09 Feb 2020 11:32:09 +0000</pubDate>
-      <guid>https://minicloudsky.cn/blog/2020/02/09/linux%E4%B8%ADswap%E4%B8%8Ememory%E4%BB%8B%E7%BB%8D/</guid>
-      <description>&lt;h1 id=&#34;1-背景介绍&#34;&gt;1. 背景介绍&lt;/h1&gt;&#xA;&lt;p&gt;这篇文章介绍一下 Linux 中 swap 与 memory。memory 就是机器的物理内存ram，读写速度低于 cpu 一个量级，但是高于磁盘不止一个量级。所以，程序和数据如果在内存的话，会有非常快的读写速度。但是，内存的造价是要高于磁盘的，虽然相对来说价格一直在降低。除此之外，内存的断电丢失数据也是一个原因，因此不能把所有数据和程序都保存在内存中。既然不能全部使用内存，那数据还有程序肯定不可能一直霸占在内存中。当内存没有可用的，就必须要把内存中不经常运行的程序给踢出去。但是踢到哪里去，这时候 swap 就出现了。&lt;strong&gt;swap 全称为 swap place，即交换区&lt;/strong&gt;，当内存不够的时候，被踢出的进程数据被暂时存储到交换区。当需要这条被踢出的进程的时候，就从交换区重新加载到内存，否则它不会主动交换到真实内存中。&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
